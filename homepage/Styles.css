@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    padding: 0;
+    margin-top: 75px;
+    background-color: #FFF2E8;
+    overflow: hidden;
+}
+
+svg.svg-background {
+    position: absolute;
+    top: 0;
+    width:  100%;
+    left: 0;
+    z-index: -1;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 10px;
+    background-color: white;
+    z-index: 1000;
+}
+
+.restaurant-name {
+    margin-left: 10px;
+    font-family: Righteous, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+    text-transform: capitalize;
+    background: linear-gradient(180deg, #DC2F02 0%, #FF330F 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.menu-items {
+    display: flex;
+    gap: 20px;
+}
+.menu-items a:last-child {
+    margin-right: 20px;
+}
+.menu-items a:first-child {
+    margin-left: 20px;
+}
+.menu-items a {
+    color: #252B33;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 26px;
+    text-decoration: none;
+}
+
+.Hamburger{
+    width: 496px;
+    height: 446px;
+    mix-blend-mode: multiply;
+
+}
+
+.menu-items a:hover {
+    color: #E85D04;
+}
+
+.menu-items a:active {
+    color: #E85D04;
+}
