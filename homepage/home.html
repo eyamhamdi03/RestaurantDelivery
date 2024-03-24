@@ -14,15 +14,16 @@
         </g>
     </svg>
 
-    <nav id="navigation">
-        <div class="restaurant-name">Restaurant Name</div>
-        <div class="menu-items">
-            <a href="#">Home</a>
-            <a href="#">Your Orders</a>
-            <a href="#">Contact Us</a>
-            <a href="#">Login</a>
-        </div>
-    </nav>
+    <!-- nav.html -->
+<div id="nav-placeholder"></div>
+<script>
+    fetch('nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('nav-placeholder').innerHTML = data;
+        });
+</script>
+
 
     <section>
         <div class="row" id="row1">
