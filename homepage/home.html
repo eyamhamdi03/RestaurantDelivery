@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-
+    <script src="Script.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1529 848" fill="none" class="svg-background">
@@ -15,16 +16,8 @@
     </svg>
 
     <!-- nav.html -->
-<div id="nav-placeholder"></div>
-<script>
-    fetch('nav.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('nav-placeholder').innerHTML = data;
-        });
-</script>
-
-
+    <div id="nav-placeholder"></div>
+    
     <section>
         <div class="row" id="row1">
             <div class="col">
@@ -42,27 +35,28 @@
             <button class="OffBtn">Create Account</button>
         </div>
         <div class="row">
-            <img src="scroll down.png" style="margin-top: 20px;">
+            <div class="col">
+                <img src="scroll down.png" style="margin-top: 20px;">
+            </div>
         </div>        
-        <div class="row">
-            <img src="decor2.png" style="margin-left: -10px; margin-right: auto;">
+        <img src="decor2.png" class="decor-img">
+        
+        <div class="container">
+            <div class="Title">Our Menu</div> 
+            <div class="row" id="menuRow"></div>
         </div>
-
-    </section>
-
-    <section>
-        <div class="Title">Our Menu</div>    
-        <div><button class="primary-btn">this is a primary button</button></div>
-        <div class="card" style="width: 18rem;">
-            <img src="Food Photo.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Chicken Salad</h5>
-                <h6 class="price">10.250DT</h6>
-            </div>
-            <div class="card-body">
-                <a href="#" class="card-link">Order Now</a>
-            </div>
-        </div>
-    </section>
+        
+       
+        
 </body>
+<footer>
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</footer>
 </html>
