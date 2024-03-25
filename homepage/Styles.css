@@ -1,0 +1,200 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #FFF2E8;
+    overflow: hidden;
+}
+
+svg.svg-background {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 0;
+    z-index: -1;
+}
+
+
+h5 {
+    color: #212121;
+    font-size: 22px;
+    font-family: Metrophobic;
+    font-weight: 400;
+    line-height: 26.40px;
+    word-wrap: break-word;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    background-color: white;
+    color: #252B33;
+    font-family: Arial, sans-serif;
+    z-index: 1000;
+    padding: 0 20px;
+    box-shadow: 0 2px 4px rgba(176, 172, 172, 0.1);
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.Footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 20px;
+}
+
+.footer-icon {
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+}
+
+.restaurant-name {
+    margin-left: 10px;
+    color: #DC2F02;
+    font-size: 20px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+
+.menu-items a {
+    color: #252B33;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 26px;
+    text-decoration: none;
+}
+
+.menu-items {
+    display: flex;
+    gap: 20px;
+}
+
+.menu-items a:last-child {
+    margin-right: 50px;
+}
+
+.menu-items a:first-child {
+    margin-left: 20px;
+}
+
+.menu-items a:hover,
+.menu-items a:active {
+    color: #E85D04;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#row1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 400px;
+}
+
+.col {
+    flex: 1;
+}
+
+.Hamburger {
+    width: 496px;
+    height: 455.13px;
+    mix-blend-mode: multiply;
+}
+
+.FillBtn,
+.OffBtn {
+    width: 172.87px;
+    height: 46.94px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 26px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+}
+
+.FillBtn {
+    background: linear-gradient(180deg, #F0745E 0%, #F0745E 0%, #F0725C 2%, #FF330F 100%);
+    border: none;
+    color: white;
+    margin-right: 10px;
+}
+
+.OffBtn {
+    border: 2px #F0745E solid;
+    background-color: transparent;
+    color: #252B33;
+}
+
+section {
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.Title {
+    margin-left: 30px;
+    width: 100%;
+    color: #212121;
+    font-size: 30px;
+    font-family: Poppins;
+    font-weight: 700;
+    line-height: 42px;
+    word-wrap: break-word;
+}
+
+.decor-img {
+    margin: 0;
+    padding: 0;
+}
+
+.btn-primary {
+    background-color: #FC8019;
+    border-color: #FC8019;
+    color: #FFF2E8;
+    width: calc(100% - 20px);
+    margin-right: 10px;
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+    background-color: #F0745E;
+    border-color: #F0745E;
+}
+
+.card-wrapper {
+    width: 300px;
+    margin: 0 auto;
+    float: left;
+}
+
+.our-menu {
+    text-align: center;
+    margin-top: 20px;
+}
