@@ -82,9 +82,13 @@ section:nth-child(2) div {
     font-size: 18px;
     font-family:"Poppins";
     font-weight: 900;
+<<<<<<< HEAD
+   line-height: 20px;
+=======
     line-height: 20px;
     margin-top: 20px;
     margin-bottom: 10px;
+>>>>>>> 1b22723645527476378afcea3d45e333e02c977c
     word-wrap: break-word ;
    
 }
