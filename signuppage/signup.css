@@ -1,0 +1,113 @@
+*{
+    box-sizing: border-box;
+}
+#photo{
+    float: left;
+    position: relative;
+    width: 50%;
+    height: 982px;
+    flex-shrink: 0;
+    background: url("Rectangle 338.png") lightgray 50% / cover no-repeat;
+
+
+}
+#formulaire{
+    float: left;
+    position: relative;
+    width: 50%;
+   height: 981.293px;
+    flex-shrink: 0;
+    fill: rgba(170, 170, 170, 0.15);
+    filter: drop-shadow(0px 4px 50px rgba(0, 0, 0, 0.05));
+}
+#vector{
+    position:relative;
+    width: 1542.62px;
+    height: 982px;
+    background: var(--Main-Primary-50, #FFF2E8);
+
+
+}
+h1{
+    position: relative;
+font-family: Poppins;
+font-size: 80px;
+font-style: normal;
+font-weight: 700;
+line-height: 86px; /* 107.5% */
+text-transform: capitalize;
+text-align: center;
+top:40px;
+
+
+}
+.layout{
+top:40px;
+margin:40px;
+position: relative;
+display: flex;
+width: 708px;
+height: 67.105px;
+justify-content: center;
+align-items: flex-start;
+gap: 65.263px;
+flex-shrink: 0;
+}
+.name{
+    float: left;
+    position: relative;
+    width: 50%;
+}
+.inpu{
+    width: 321.369px;
+    height: 39.474px;
+    flex-shrink: 0;
+    color: #151522;
+font-family: Roboto;
+font-size: 13px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px; /* 138.462% */
+}
+input[type="submit"] {
+    position: relative;
+    float :left;
+    box-align:center;
+    left:200px;
+    top:30px;
+    width: 400px;
+    height: 50px;
+    background: linear-gradient(360deg, #F0745E 0%, #FF330F 100%);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    padding: 10px 20px;
+}
+.typo{
+    color: #370617;
+font-family: Roboto;
+font-size: 15px;
+font-style: normal;
+font-weight: 700;
+line-height: 18px; /* 120% */
+}
+.food{
+    color: #DC2F02;
+font-family: Poppins;
+font-size: 80px;
+font-style: normal;
+font-weight: 700;
+line-height: 86px; /* 107.5% */
+text-transform: capitalize;
+}
+.Delivery{
+color: #370617;
+font-family: Poppins;
+font-size: 80px;
+font-style: normal;
+font-weight: 700;
+line-height: 86px;
+text-transform: capitalize;
+}
