@@ -61,7 +61,7 @@ section:nth-child(1) img {
     font-size: 20px;
     font-family:"Roboto";
     font-weight: 900;
-    line-height: 20px;
+   line-height: 20px;
     word-wrap: break-word ;
 }
 .password
