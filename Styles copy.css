@@ -183,9 +183,10 @@ section {
 }
 
 .btn-primary:hover,
-.btn-primary:active {
-    background-color: #F0745E;
-    border-color: #F0745E;
+.btn-primary:active
+.btn-primary:focus {
+    background-color:#FC8019;
+    border-color:#FC8019;
 }
 
 .card-wrapper {
@@ -197,4 +198,9 @@ section {
 .our-menu {
     text-align: center;
     margin-top: 20px;
+}
+
+.btn-danger {
+    width: calc(100% - 20px);
+    margin-right: 10px;
 }
