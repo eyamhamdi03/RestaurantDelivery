@@ -1,6 +1,7 @@
 <link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 
-<footer>
+<footer class="fixed-bottom">
     <div class="Footer">
         <img class="footer-icon" src="assets/fb-ic.svg" alt="Facebook Icon">
         <img class="footer-icon" src="assets/insta-ic.svg" alt="Instagram Icon">

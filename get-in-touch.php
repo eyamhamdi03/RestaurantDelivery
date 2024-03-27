@@ -10,6 +10,8 @@
   
 </head>
 <body>
+<?php include ('nav.php');?>
+
   <section>
     <img src="assets/image 295.png" alt="">
   </section>
@@ -24,12 +26,11 @@
       <button type="submit" class="submit-button">Send Now</button>
     </form>
   </section>
-  <div><a href="../RestaurantDelivery/home.html" class="custom-link">X</a></div>
   <div id="successMessage" class="success-message" style="display: none;">We have received your email. Thank you for contacting us. We will reply to you as soon as possible!</div>
   <script src="https://web3forms.com/client/script.js" async defer></script>
   <script src="scriptcontactus.js"> </script>
 </body>
 <footer>
-  <div id="footer-placeholder" class="fixed-bottom">></div>
+<?php include ('footer.php');?>
 </footer>
 </html>

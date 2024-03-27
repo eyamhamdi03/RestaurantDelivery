@@ -18,8 +18,8 @@
     </svg>
 
     <!-- nav.html -->
-    <div id="nav-placeholder"></div>
-    
+    <?php include ('nav.php');?>
+
     <div class="container">
         <div class="row">
             <div class="col">
@@ -38,7 +38,6 @@
     </div>
 
 </body>
-<footer class="fixed-bottom">
-    <div id="footer-placeholder"></div>
-</footer>
+<?php include ('footer.php');?>
+
 </html>

@@ -1,14 +1,6 @@
 var userStatus = "admin"; // changed to var for compatibility with the rest of the code
 
 async function fetchData() {
-    const [navResponse, footerResponse] = await Promise.all([
-        fetch('nav.html').then(response => response.text()),
-        fetch('footer.html').then(response => response.text())
-    ]);
-
-    document.getElementById('nav-placeholder').innerHTML = navResponse;
-    document.getElementById('footer-placeholder').innerHTML = footerResponse;
-
     updateNavigationBar(userStatus);
     updateButtons(userStatus);
 
@@ -33,16 +25,16 @@ async function updateButtons(userStatus) {
                 document.getElementById("Menu").scrollIntoView({ behavior:"smooth" });
             });
             getStartedBtn.addEventListener("click", () => {
-                window.location.href = "Orders.html";
+                window.location.href = "Orders.php";
             });
     
         }
         else{
             createAccountBtn.addEventListener("click", () => {
-                window.location.href   ="signup.html"         
+                window.location.href   ="signup.php"         
         });
         getStartedBtn.addEventListener("click", () => {
-            window.location.href = "login.html";
+            window.location.href = "login.php";
         });
     }}
 async function updateNavigationBar(userStatus) {
@@ -51,10 +43,10 @@ async function updateNavigationBar(userStatus) {
     
         if (userStatus === "admin") {
             menuItems.innerHTML = `
-                <a href="home.html">Home</a>
+                <a href="home.php">Home</a>
                 <a href="#">Menu</a>
-                <a href="Orders.html">Orders</a>
-                <a href="login.html">Logout</a>
+                <a href="Orders.php">Orders</a>
+                <a href="login.php">Logout</a>
             `;
     
             let newRow = document.createElement("div");
@@ -74,10 +66,10 @@ async function updateNavigationBar(userStatus) {
             menuSection.insertAdjacentElement("afterend", newRow);
         } else if (userStatus === "normal") {
             menuItems.innerHTML = `
-                <a href="home.html">Home</a>
-                <a href="get-in-touch.html">Contact us</a>
-                <a href="#">Your orders</a>
-                <a href="Login.html">Logout</a>
+                <a href="home.php">Home</a>
+                <a href="get-in-touch.php">Contact us</a>
+                <a href="Orders.php">Your orders</a>
+                <a href="Login.php">Logout</a>
             `;
         }
     }
@@ -144,10 +136,10 @@ function handleclick(event) {
         }}
         else{
             if (userStatus === 'normal') {
-                window.location.href = "order.html";
+                window.location.href = "order.php";
             } else {
                 alert("You need to login first");
-                window.location.href = "login.html";
+                window.location.href = "login.php";
         }
     }}
 

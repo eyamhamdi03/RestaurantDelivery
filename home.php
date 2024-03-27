@@ -16,6 +16,7 @@
     </svg>
 
     <!-- nav.html -->
+    <?php include ('nav.php');?>
     <div id="nav-placeholder"></div>
     
     <section>
@@ -53,7 +54,5 @@
         </div>
         
 </body>
-<footer>
-    <div id="footer-placeholder"></div>
-</footer>
+    <?php include ('footer.php');?>
 </html>

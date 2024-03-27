@@ -9,7 +9,7 @@
 <title>order</title>
     </head>
     <body>
-      <div id="nav-placeholder"></div>
+    <?php include ('nav.php');?>
 
         <div class="container">
              <div class="step"> 
@@ -68,7 +68,6 @@
         </div>
         <div id="photo2"></div>
     </body>
-    <footer class="fixed-bottom">
-      <div id="footer-placeholder" class="fixed-bottom"></div>
-  </footer>
+    <?php include ('footer.php');?>
+
 </html>

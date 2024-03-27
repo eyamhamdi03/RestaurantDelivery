@@ -23,7 +23,10 @@
             <input type="submit" value="Get Started">
         </form>
         <div class="signup"><a href="signup.html" style="color: #DC2F02; text-align: center; margin-left: 120px;">Create new account!</a></div>
+
     </section>
     <div><a href="home.html" class="custom-link">X</a></div>
+
 </body>
+
 </html>

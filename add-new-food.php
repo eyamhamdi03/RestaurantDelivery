@@ -42,7 +42,7 @@
         </div>
         <div class="form-group">
             <div class="text">Description:</div>
-            <input type="number" class="form-control" name="dishPrice" placeholder="Description" cols=30 style="width: 100%;">
+            <input type="text" class="form-control" name="dishPrice" placeholder="Description" cols=30 style="width: 100%;">
         </div>
         <div class="form-group">
             <div class="text">Dish photo:</div>
@@ -73,24 +73,29 @@
                     $_SESSION['upload']="<div class='error'>Failed to upload image</div>";
                     header('location:'.SITEURL.'add-new-food.php');
                     die();
-                }
-            
-            
-            
+                }    
             }
             
         } else {
            $dishPhoto=""; // select default value as blanc
         }
+
         $dishPhoto = $_FILES['dishPhoto']['name'];
         $target = "images/".basename($dishPhoto);
         $db = new PDO('mysql:host=localhost;dbname=restaurant', 'root', '');
-        $sql = "INSERT INTO dishes (name, price, photo, description) VALUES ('$dishName', '$dishPrice', '$dishPhoto', '$description')";
-        $db->query($sql);
-        if (move_uploaded_file($_FILES['dishPhoto']['tmp_name'], $target)) {
-            echo "Image uploaded successfully";
-        } else {
-            echo "Failed to upload image";
+        $sql = "INSERT INTO menu
+        dishName ='$dishName',
+        dishPrice = '$dishPrice',
+        description = '$description',
+        dishPhoto = '$dishPhoto'";
+    //execute the query
+       $res =mysqli_query($conn, $sql);
+         if ($res==true) {
+              $_SESSION['add']="<div class='success'>Dish added successfully</div>";
+              header('location:'.SITEURL.'home.php');}
+        else{
+            $_SESSION['add']="<div class='error'>Failed to add dish</div>";
+            header('location:'.SITEURL.'home.php');
         }
     }
     ?>
