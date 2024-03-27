@@ -136,3 +136,25 @@ input[type="submit"] {
     color: white;
     padding: 5px;
 }
+.custom-link {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: transparent;
+    border-radius: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    font-size: 22px;
+    font-family:Arial,serif;
+    text-decoration: none;
+    z-index: 9999;
+    
+}
+.custom-link:hover {
+    color: #fff;
+    background-color: #DC2F02;
+}
