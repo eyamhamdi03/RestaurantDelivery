@@ -62,7 +62,7 @@ function updateNavigationBar(userStatus) {
             <a href="home.html">Home</a>
             <a href="#">Menu</a>
             <a href="#">Orders</a>
-            <a href="http://localhost:5500/RestaurantDelivery/login.html">Logout</a>
+            <a href="login.html">Logout</a>
         `;
     } else if (userStatus === "normal") {
         menuItems.innerHTML = `

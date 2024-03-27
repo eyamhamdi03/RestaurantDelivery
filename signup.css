@@ -1,13 +1,21 @@
 *{
     box-sizing: border-box;
 }
+
+
+
 #photo{
+    flex: 1;
+    
+    overflow: hidden;
+
     float: left;
     position: relative;
     width: 50%;
-    height: 982px;
-    flex-shrink: 0;
-    background: url("Rectangle 338.png") lightgray 50% / cover no-repeat;
+    height: 100%;
+    background: url("Rectangle 338.png");
+    object-fit: cover; 
+    background-size: cover;
 
 
 }
@@ -28,22 +36,13 @@
 
 
 }
-h1{
-    position: relative;
-font-family: Poppins;
-font-size: 80px;
-font-style: normal;
-font-weight: 700;
-line-height: 86px; /* 107.5% */
-text-transform: capitalize;
-text-align: center;
-top:40px;
 
 
-}
 .layout{
-top:40px;
-margin:40px;
+top:10px;
+margin:20px;
+right: 5px;
+left: 5px;
 position: relative;
 display: flex;
 width: 708px;
@@ -67,47 +66,10 @@ font-family: Roboto;
 font-size: 13px;
 font-style: normal;
 font-weight: 400;
-line-height: 18px; /* 138.462% */
-}
-input[type="submit"] {
-    position: relative;
-    float :left;
-    box-align:center;
-    left:200px;
-    top:30px;
-    width: 400px;
-    height: 50px;
-    background: linear-gradient(360deg, #F0745E 0%, #FF330F 100%);
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 20px;
-    color: white;
-    padding: 10px 20px;
-}
-.typo{
-    color: #370617;
-font-family: Roboto;
-font-size: 15px;
-font-style: normal;
-font-weight: 700;
-line-height: 18px; /* 120% */
-}
-.food{
-    color: #DC2F02;
-font-family: Poppins;
-font-size: 80px;
-font-style: normal;
-font-weight: 700;
-line-height: 86px; /* 107.5% */
-text-transform: capitalize;
-}
-.Delivery{
-color: #370617;
-font-family: Poppins;
-font-size: 80px;
-font-style: normal;
-font-weight: 700;
-line-height: 86px;
-text-transform: capitalize;
+line-height: 18px; 
+margin-bottom: 10px;
+padding: 10px;
+font-size: 16px;
+border-radius: 5px;
+border: 1px solid white; 
 }

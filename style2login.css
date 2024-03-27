@@ -76,10 +76,11 @@ section:nth-child(2) div {
 }
 
 
-.emailadd
+.text
 {
     color: #370617;
     font-size: 18px;
+    
     font-family:"Poppins";
     font-weight: 900;
    line-height: 20px;
@@ -134,18 +135,4 @@ input[type="submit"] {
     font-size: 18px;
     color: white;
     padding: 5px;
-}
-
-.signup
-{
-    margin-top: 0px;
-    text-align: center;
-    color: #DC2F02;
-    font-size: 16px;
-    font-family:"Poppins";
-    font-size: 16px;
-    font-weight: 300;
-
-    line-height: 20px; 
-    word-wrap: break-word;
 }
