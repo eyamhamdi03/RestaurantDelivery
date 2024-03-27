@@ -65,7 +65,7 @@ function updateNavigationBar(userStatus) {
         menuItems.innerHTML = `
             <a href="home.html">Home</a>
             <a href="#">Menu</a>
-            <a href="#">Orders</a>
+            <a href="Orders.html">Orders</a>
             <a href="login.html">Logout</a>
         `;
 
@@ -84,7 +84,7 @@ function updateNavigationBar(userStatus) {
     } else if (userStatus === "normal") {
         menuItems.innerHTML = `
             <a href="home.html">Home</a>
-            <a href="#">Menu</a>
+            <a href="get-in-touch.html">Contact us</a>
             <a href="#">Your orders</a>
             <a href="Login.html">Logout</a>
         `;
