@@ -1,4 +1,4 @@
-let userStatus = "normal"; 
+let userStatus = "admin"; 
 
 fetch('nav.html')
     .then(response => response.text())
@@ -52,7 +52,6 @@ cards.forEach(function(card, index) {
     lastRow.appendChild(cardDiv);
 });
 
-
 function updateNavigationBar(userStatus) {
     let navElement = document.getElementById("navigation");
     let menuItems = navElement.querySelector(".menu-items");
@@ -64,6 +63,19 @@ function updateNavigationBar(userStatus) {
             <a href="#">Orders</a>
             <a href="login.html">Logout</a>
         `;
+
+        let newRow = document.createElement("div");
+        newRow.classList.add("row");
+        let newCol = document.createElement("div");
+        newCol.classList.add("col");
+
+        let addNewDishButton = document.createElement("button");
+        addNewDishButton.classList.add("btn", "btn-success");
+        addNewDishButton.textContent = "Add New Dish";
+        newCol.appendChild(addNewDishButton);
+        newRow.appendChild(newCol);
+        let menuSection = document.getElementById("Menu");
+        menuSection.insertAdjacentElement("afterend", newRow);
     } else if (userStatus === "normal") {
         menuItems.innerHTML = `
             <a href="home.html">Home</a>
@@ -73,6 +85,8 @@ function updateNavigationBar(userStatus) {
         `;
     }
 }
+
+
 function updateButtons(userStatus) {
     var getStartedBtn = document.querySelector(".FillBtn");
     var createAccountBtn = document.querySelector(".OffBtn");

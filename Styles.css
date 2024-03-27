@@ -26,6 +26,13 @@ h5 {
     word-wrap: break-word;
 }
 
+    #addNewDishBtn {
+        height: 50px;
+        width: 150px; 
+        margin: 20px auto; 
+        display: block; 
+    }
+
 nav {
     position: fixed;
     top: 0;
