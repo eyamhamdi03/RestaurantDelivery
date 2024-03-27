@@ -9,7 +9,7 @@ var cardsOrders = [
     { name: "Classic Cheeseburger", price: "8.99 DT", date: "12/12/2021", delivered: false },
 
 ];
-var isAdmin = true;
+var isAdmin = false;
 var OrdersRow = document.getElementById("OrdersRow");
 var rows = document.querySelectorAll(".row");
 
