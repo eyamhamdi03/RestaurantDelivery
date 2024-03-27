@@ -214,3 +214,47 @@ section {
     width: calc(100% - 20px);
     margin-right: 10px;
 }
+
+.delivered{
+    color: #00C48C;
+     font-size: 11px;
+     font-family: Roboto;
+     font-weight: 500;
+     text-transform: uppercase;
+     line-height: 13px;
+     word-wrap: break-word;}
+     .waiting{
+    color: #0084F4;
+     font-size: 11px;
+     font-family: Roboto;
+     font-weight: 500;
+     text-transform: uppercase;
+     line-height: 13px;
+     word-wrap: break-word
+     }
+     .date{
+    color: #999999;
+     font-size: 13px;
+     font-family: Roboto;
+     font-weight: 300;
+     line-height: 18px;
+     word-wrap: break-word
+     }
+.price{
+color: #151522;
+ font-size: 15px;
+ margin-left: 15px;
+ font-family: Roboto;
+ font-style: italic;
+ font-weight: 100;
+ line-height: 20px;
+ word-wrap: break-word
+}
+.card-title{
+ font-size: 20px;
+ font-family: Roboto;
+ font-style: bold;
+ font-weight: 100;
+ line-height: 25px;
+ word-wrap: break-word
+}

@@ -8,6 +8,11 @@ fetch('nav.html')
         updateButtons(userStatus); 
 
     });
+    fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
 
 var cards = [
     { name: "Chicken Salad", price: "10.25 DT", photo: "Food Photo.png" },
@@ -109,4 +114,6 @@ function updateButtons(userStatus) {
 
     }
 }
+
+
 
