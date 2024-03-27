@@ -1,4 +1,4 @@
-var userStatus = "none"; // changed to var for compatibility with the rest of the code
+var userStatus = "admin"; // changed to var for compatibility with the rest of the code
 
 async function fetchData() {
     const [navResponse, footerResponse] = await Promise.all([
@@ -68,7 +68,7 @@ async function updateNavigationBar(userStatus) {
             newCol.appendChild(addNewDishButton);
             newRow.appendChild(newCol);
             addNewDishButton.addEventListener("click", () => {
-                window.location.href = "add-new-dish.html"; // Redirect to add new dish page
+                window.location.href = "add-new-food.php"; // Redirect to add new dish page
             });
             let menuSection = document.getElementById("Menu");
             menuSection.insertAdjacentElement("afterend", newRow);
@@ -86,10 +86,10 @@ async function updateNavigationBar(userStatus) {
 
 
 var cards = [
-    { name: "Chicken Salad", price: "10.25 DT", photo: "assets/Food Photo.png" },
-    { name: "Margherita Pizza", price: "12.50 DT", photo: "assets/2.png" },
-    { name: "Chicken Alfredo Pasta", price: "15.75 DT", photo: "assets/3.png" },
-    { name: "Classic Cheeseburger", price: "8.99 DT", photo: "assets/4.png" },
+    { name: "Chicken Salad", price: "10.25 DT", photo: "assets/Food Photo.png",description :"description" },
+    { name: "Margherita Pizza", price: "12.50 DT", photo: "assets/2.png" ,description :"description" },
+    { name: "Chicken Alfredo Pasta", price: "15.75 DT", photo: "assets/3.png",description :"description" },
+    { name: "Classic Cheeseburger", price: "8.99 DT", photo: "assets/4.png" ,description :"description"},
 ];
 
 var menuRow = document.getElementById("menuRow");
@@ -124,6 +124,7 @@ function renderMenu() {
                             <div class="price">${card.price}</div>
                         </div>
                         <h5 class="card-title" style="margin-top: 10px; margin-bottom: 10px;">${card.name}</h5>
+                        <p class="text-muted">${card.description}</p>
                         <a href="#" class="${userStatus === 'admin' ? 'btn-danger' : 'btn-primary'} btn" onclick="handleclick(event)">${userStatus === 'admin' ? 'Delete' : 'Order Now !'}</a>
                     </div>
                 </div>
