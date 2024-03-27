@@ -1,14 +1,51 @@
-var userStatus = "admin"; // changed to var for compatibility with the rest of the code
+var userStatus = "none"; // changed to var for compatibility with the rest of the code
 
-fetch('nav.html')
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById('nav-placeholder').innerHTML = data;
-        updateNavigationBar(userStatus); 
-        updateButtons(userStatus); 
-    });
+async function fetchData() {
+    const [navResponse, footerResponse] = await Promise.all([
+        fetch('nav.html').then(response => response.text()),
+        fetch('footer.html').then(response => response.text())
+    ]);
+
+    document.getElementById('nav-placeholder').innerHTML = navResponse;
+    document.getElementById('footer-placeholder').innerHTML = footerResponse;
+
+    updateNavigationBar(userStatus);
+    updateButtons(userStatus);
+
+    renderMenu(); // Assuming this function is defined elsewhere in your code
+}
+
+fetchData();
+async function updateButtons(userStatus) {
+        var getStartedBtn = document.querySelector(".FillBtn");
+        var createAccountBtn = document.querySelector(".OffBtn");
     
-    function updateNavigationBar(userStatus) {
+        if (userStatus === "normal") {
+            getStartedBtn.textContent ="Your Orders" ;
+            createAccountBtn.textContent = "Order Now";
+            createAccountBtn.addEventListener("click", () => {
+                document.getElementById("Menu").scrollIntoView({ behavior:"smooth" });
+            });
+        } else if (userStatus === "admin") {
+            getStartedBtn.textContent = "Our Menu";
+            createAccountBtn.textContent = "Orders";
+            getStartedBtn.addEventListener("click", () => {
+                document.getElementById("Menu").scrollIntoView({ behavior:"smooth" });
+            });
+            getStartedBtn.addEventListener("click", () => {
+                window.location.href = "Orders.html";
+            });
+    
+        }
+        else{
+            createAccountBtn.addEventListener("click", () => {
+                window.location.href   ="signup.html"         
+        });
+        getStartedBtn.addEventListener("click", () => {
+            window.location.href = "login.html";
+        });
+    }}
+async function updateNavigationBar(userStatus) {
         let navElement = document.getElementById("navigation");
         let menuItems = navElement.querySelector(".menu-items");
     
@@ -46,34 +83,7 @@ fetch('nav.html')
     }
     
     
-    
-    function updateButtons(userStatus) {
-        var getStartedBtn = document.querySelector(".FillBtn");
-        var createAccountBtn = document.querySelector(".OffBtn");
-    
-        if (userStatus === "normal") {
-            getStartedBtn.textContent ="Your Orders" ;
-            createAccountBtn.textContent = "Order Now";
-            createAccountBtn.addEventListener("click", () => {
-                document.getElementById("Menu").scrollIntoView({ behavior:"smooth" });
-            });
-        } else if (userStatus === "admin") {
-            getStartedBtn.textContent = "Our Menu";
-            createAccountBtn.textContent = "Orders";
-            getStartedBtn.addEventListener("click", () => {
-                document.getElementById("Menu").scrollIntoView({ behavior:"smooth" });
-            });
-            getStartedBtn.addEventListener("click", () => {
-                window.location.href = "Orders.html";
-            });
-    
-        }
-    }
-fetch('footer.html')
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById('footer-placeholder').innerHTML = data;
-    });
+
 
 var cards = [
     { name: "Chicken Salad", price: "10.25 DT", photo: "assets/Food Photo.png" },

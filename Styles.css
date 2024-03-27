@@ -136,8 +136,8 @@ nav a {
 
 .FillBtn,
 .OffBtn {
-    width: 172.87px;
-    height: 46.94px;
+    width: 180px;
+    height: 50px;
     border-radius: 30px;
     font-size: 16px;
     font-family: Poppins;
@@ -153,7 +153,8 @@ nav a {
     background: linear-gradient(180deg, #F0745E 0%, #F0745E 0%, #F0725C 2%, #FF330F 100%);
     border: none;
     color: white;
-    margin-right: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .OffBtn {
