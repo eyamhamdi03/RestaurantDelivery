@@ -1,4 +1,4 @@
-var userStatus = "normal"; // changed to var for compatibility with the rest of the code
+var userStatus = "admin"; // changed to var for compatibility with the rest of the code
 
 fetch('nav.html')
     .then(response => response.text())
@@ -30,6 +30,9 @@ fetch('nav.html')
             addNewDishButton.textContent = "Add New Dish";
             newCol.appendChild(addNewDishButton);
             newRow.appendChild(newCol);
+            addNewDishButton.addEventListener("click", () => {
+                window.location.href = "add-new-dish.html"; // Redirect to add new dish page
+            });
             let menuSection = document.getElementById("Menu");
             menuSection.insertAdjacentElement("afterend", newRow);
         } else if (userStatus === "normal") {
@@ -61,7 +64,7 @@ fetch('nav.html')
                 document.getElementById("Menu").scrollIntoView({ behavior:"smooth" });
             });
             getStartedBtn.addEventListener("click", () => {
-                window.location.href = "admin-orders.html";
+                window.location.href = "Orders.html";
             });
     
         }
