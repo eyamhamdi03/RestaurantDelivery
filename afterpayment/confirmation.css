@@ -1,0 +1,202 @@
+html{
+    height:700px;
+}
+body{
+    width: 100%;
+    background: var(--Main-Primary-50, #FFF2E8);
+    height:700px;
+}
+nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    background: var(--Main-Primary-50, #FFF2E8);
+    color: #252B33;
+    font-family: Arial, sans-serif;
+    z-index: 1000;
+    padding: 0 20px;
+    box-shadow: 0 2px 4px rgba(176, 172, 172, 0.1);
+}
+.menu-items {
+    display: flex;
+    gap: 20px;
+}
+.menu-items a {
+    color: #252B33;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 26px;
+    text-decoration: none;
+}
+
+.menu-items {
+    display: flex;
+    gap: 20px;
+}
+
+.menu-items a:last-child {
+    margin-right: 50px;
+}
+
+.menu-items a:first-child {
+    margin-left: 20px;
+}
+
+.menu-items a:hover,
+.menu-items a:active {
+    color: #E85D04;
+}
+.restaurant-name {
+    margin-left: 10px;
+    color: #DC2F02;
+    font-size: 20px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+.container{
+    left:460px;
+    position: relative;
+    top:100px;
+   /* background-color: #ddd;*/
+     width: 500px;
+     height: 60px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     border-radius: 5px;
+}
+.step{
+    text-align: center;
+    width: 54.625px;
+    height: 54.625px;
+    flex-shrink: 0;
+    border-radius: 40px;
+    background: #FC8019;
+}
+#photo{
+    right: 10px;
+    position: relative;
+    float: right;
+    top: 60px;
+    width: 323px;
+    height: 323px;
+    flex-shrink: 0;
+    background: url("Hamburger.png") lightgray 50% / cover no-repeat;
+    mix-blend-mode: multiply;
+}
+.frame{
+        position: relative;
+        align-self: center;
+        left:330px;
+        top:200px;
+        width: 821px;
+        height: 414px;
+        flex-shrink: 0;
+    }
+svg{
+    position: relative;
+
+    left:300px;
+    width: 160px;
+    height: 160px;
+    flex-shrink: 0;
+}
+#mabrouk{
+    position: relative;
+    right:19px;
+    height: 76px;
+}
+#congratulaions{
+    color: #151522;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 41px; /* 120.588% */
+}
+#phrase{
+    position: relative;
+    top:5px;
+    left:310px;
+    color: #151522;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+}
+#jomla{   
+    position: relative;
+    right:15px;   
+    text-align: center;
+
+}
+#fine{
+    color: #999;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 18px; /* 138.462% */
+}
+input[type="submit"] {
+    position: relative;
+    float :left;
+    box-align:center;
+    left:530px;
+    top:120px;
+    width: 400px;
+    height: 50px;
+    background: linear-gradient(360deg, #F0745E 0%, #FF330F 100%);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    padding: 10px 20px;}
+.Footer {
+  position: relative;
+  top:-80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: right;
+  margin-top: 40px;
+  /*margin-bottom: 30px;*/
+  margin-right: 20px;
+            }
+.footer-icon {
+    border:none;
+    border-radius: 5px;
+    float: right;
+    position: relative;
+    width: 20.643px;
+    height: 20.043px;
+    flex-shrink: 0;
+    margin-right: 10px;
+    fill: var(linear-gradient(180deg, #F0745E 0%, #FF330F 100%));
+ }
+ #photo2{
+    position: relative;
+    top:-70px;
+    width: 341.503px;
+    height: 228px;
+    flex-shrink: 0;
+   background: url("decor2.png") var(--Main-Primary-50, #FFF2E8) no-repeat;
+}
