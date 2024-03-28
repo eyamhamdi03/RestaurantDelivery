@@ -1,21 +1,13 @@
 *{
     box-sizing: border-box;
 }
-
-
-
 #photo{
-    flex: 1;
-    
-    overflow: hidden;
-
     float: left;
     position: relative;
     width: 50%;
-    height: 100%;
-    background: url("assets/Rectangle 338.png");
-    object-fit: cover; 
-    background-size: cover;
+    height: 982px;
+    flex-shrink: 0;
+    background: url("Rectangle 338.png") lightgray 50% / cover no-repeat;
 
 
 }
@@ -36,13 +28,22 @@
 
 
 }
+h1{
+    position: relative;
+font-family: Poppins;
+font-size: 80px;
+font-style: normal;
+font-weight: 700;
+line-height: 86px; /* 107.5% */
+text-transform: capitalize;
+text-align: center;
+top:40px;
 
 
+}
 .layout{
-top:10px;
-margin:20px;
-right: 5px;
-left: 5px;
+top:40px;
+margin:40px;
 position: relative;
 display: flex;
 width: 708px;
@@ -66,31 +67,47 @@ font-family: Roboto;
 font-size: 13px;
 font-style: normal;
 font-weight: 400;
-line-height: 18px; 
-margin-bottom: 10px;
-padding: 10px;
-font-size: 16px;
-border-radius: 5px;
-border: 1px solid white; 
+line-height: 18px; /* 138.462% */
 }
-.custom-link {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background-color: transparent;
-    border-radius: none;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #000;
+input[type="submit"] {
+    position: relative;
+    float :left;
+    box-align:center;
+    left:200px;
+    top:30px;
+    width: 400px;
+    height: 50px;
+    background: linear-gradient(360deg, #F0745E 0%, #FF330F 100%);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
     font-size: 20px;
-    text-decoration: none;
-    z-index: 9999;
-    
+    color: white;
+    padding: 10px 20px;
 }
-.custom-link:hover {
-    color: #fff;
-    background-color: #DC2F02;
+.typo{
+    color: #370617;
+font-family: Roboto;
+font-size: 15px;
+font-style: normal;
+font-weight: 700;
+line-height: 18px; /* 120% */
+}
+.food{
+    color: #DC2F02;
+font-family: Poppins;
+font-size: 80px;
+font-style: normal;
+font-weight: 700;
+line-height: 86px; /* 107.5% */
+text-transform: capitalize;
+}
+.Delivery{
+color: #370617;
+font-family: Poppins;
+font-size: 80px;
+font-style: normal;
+font-weight: 700;
+line-height: 86px;
+text-transform: capitalize;
 }
