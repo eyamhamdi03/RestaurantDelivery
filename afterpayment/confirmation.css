@@ -95,7 +95,7 @@ nav {
     width: 323px;
     height: 323px;
     flex-shrink: 0;
-    background: url("Hamburger.png") lightgray 50% / cover no-repeat;
+    background: url("../assets/Hamburger.jpg") lightgray 50% / cover no-repeat;
     mix-blend-mode: multiply;
 }
 .frame{
