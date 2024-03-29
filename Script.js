@@ -70,44 +70,10 @@ async function updateNavigationBar(userStatus) {
             `;
         }
     }
-
-function handleclick(event) {
-    if (userStatus === 'admin') {
-        const cardBody = event.target.closest('.card-body');
-        if (cardBody) {
-            const cardIndex = Array.from(cardBody.parentNode.parentNode.parentNode.children).indexOf(cardBody.parentNode.parentNode);
-            cards.splice(cardIndex, 1); 
-            renderMenu(); 
-        }}
-        else{
-            if (userStatus === 'normal') {
-                window.location.href = "order.php";
-            } else {
-                alert("You need to login first");
-                window.location.href = "login.php";
-        }
-    }}
-    async function fetchMenuItems() {
-        try {
-            const response = await fetch('get-menu.php');
-            const menuItems = await response.json();
-            return menuItems.map(item => ({
-                name: item.dishName,
-                price: item.dishPrice + " DT",
-                photo: "assets/food/" + item.dishPhoto,
-                description: item.description
-            }));
-        } catch (error) {
-            console.error('Error fetching menu items:', error);
-            return [];
-        }
-    }
+    
     async function fetchData() {
         updateNavigationBar(userStatus);
         updateButtons(userStatus);
-    
-        const menuItems = await fetchMenuItems();
-        cards.push(...menuItems);
     
         renderMenu();
     }

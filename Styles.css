@@ -199,7 +199,7 @@ section {
 
 .card-wrapper {
     width: 300px;
-    margin: 0 auto;
+    margin: 10px ;
     float: left;
 }
 
@@ -209,7 +209,7 @@ section {
 }
 
 .btn-danger {
-    width: calc(100% - 20px);
+    width: 100%;
     margin-right: 10px;
 }
 

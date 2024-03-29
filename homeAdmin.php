@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+define('SITEURL', 'http://localhost/RestaurantDelivery/'); // Adjust the URL as needed
+
+
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -83,7 +89,15 @@ if ($count > 0) {
                     </div>
                     <h5 class="card-title" style="margin-top: 10px; margin-bottom: 10px;"><?php echo $name ?></h5>
                     <p class="text-muted"><?php echo $description ?></p>
-                    <a href="#" class="btn-danger btn">Delete</a>
+                    <a href="#" onclick="confirmDelete(<?php echo $id; ?>);" class="btn-danger btn">Delete</a>
+
+<script>
+function confirmDelete(id) {
+    if (confirm("Are you sure you want to delete this dish from the menu?")) {
+        window.location.href = "<?php echo SITEURL; ?>Deletefood.php?id=" + id;
+    }
+}
+</script>
                 </div>
             </div>
         </div>
