@@ -54,8 +54,16 @@ define('SITEURL', 'http://localhost/RestaurantDelivery/'); // Adjust the URL as 
         <img src="assets/decor2.png" class="decor-img">
 
         <div class="container">
-            <div class="Title" id = "Menu">Our Menu</div> 
+            <div class="Title" id = "Menu" style = "align-items =center;">Our Menu</div> 
+            <div class="row justify-content-center">
+    <div class="col-auto">
+        <button id="addNewDishButton" class="btn btn-success">Add New Dish</button>
+    </div>
+</div>
+
+
             <div class="row" id="menuRow"> </div>
+            
             <?php
 $db = new PDO('mysql:host=localhost;dbname=RestaurantDelivery', 'root', '');
 

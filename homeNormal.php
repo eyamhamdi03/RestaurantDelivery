@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+define('SITEURL', 'http://localhost/RestaurantDelivery/'); // Adjust the URL as needed
+
+
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -46,54 +52,58 @@
             </div>
         </div>        
         <img src="assets/decor2.png" class="decor-img">
-         <?php 
-         $sql = "SELECT * FROM menu";  
 
-         $res=mysqli_query($conn,$sql);
-         $count = mysqli_num_rows($res);        
-         if($count>0){
-             while($row=mysqli_fetch_assoc($res)){
-                 $id = $row['dishId'];
-                 $name = $row['dishName'];
-                 $price = $row['dishPrice'];
-                 $description = $row['Description'];
-                 $photo = $row['photo'];
-                 ?>
-            <div class="card-wrapper">
-                <div class="card">
-                    <?php
-                    if ($photo == "") {
-                        $photo = "assets/food.jpg";
-                    } else {
-                        $photo = "uploads/" . $photo;
-                    }
-                    ?>
-                    <img src=<?php echo $photo?> class="card-img-top" alt="Food Photo">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="review">
-                                <span class="text-muted">Dining & Delivery</span>
-                            </div>
-                            <div class="price"><?php echo $price ?></div>
+        <div class="container">
+            <div class="Title" id = "Menu" style = "align-items =center;">Our Menu</div> 
+            <div class="row" id="menuRow"> </div>
+            
+            <?php
+$db = new PDO('mysql:host=localhost;dbname=RestaurantDelivery', 'root', '');
+
+$sql = "SELECT * FROM menu";
+$res = $db->query($sql);
+$count = $res->rowCount();
+if ($count > 0) {
+    while ($row = $res->fetch(PDO::FETCH_ASSOC)) {
+        $id = $row['dishId'];
+        $name = $row['dishName'];
+        $price = $row['dishPrice'];
+        $description = $row['Description'];
+        $photo = !empty($row['dishPhoto']) ? "assets/food/" . $row['dishPhoto'] : "assets/food/nofood.jpg";
+        ?>
+        <div class="card-wrapper">
+            <div class="card">
+            <img src="<?php echo $photo ?>" class="card-img-top cover-img" alt="Food Photo">
+            <style>.cover-img {
+        object-fit: cover;    
+        width: 300px; 
+     height: 300px;
+    object-fit: cover; 
+}
+</style>   
+            <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="review">
+                            <span class="text-muted">Dining & Delivery</span>
                         </div>
-                        <h5 class="card-title" style="margin-top: 10px; margin-bottom: 10px;"><?php echo $name ?></h5>
-                        <p class="text-muted"><?php echo $description ?></p>
-                        <a href="#" class="${userStatus === 'admin' ? 'btn-danger' : 'btn-primary'} btn" onclick="handleclick(event)">${userStatus === 'admin' ? 'Delete' : 'Order Now !'}</a>
+                        <div class="price"><?php echo $price ?><span> DT</span></div>
                     </div>
+                    <h5 class="card-title" style="margin-top: 10px; margin-bottom: 10px;"><?php echo $name ?></h5>
+                    <p class="text-muted"><?php echo $description ?></p>
+
+                    <a href="order.php" class="btn btn-primary">Order Now!</a>
+
+</script>
                 </div>
             </div>
-        
+        </div>
+        <?php
+    }
+} else {
+    echo "<div class='alert alert-danger'>No food available</div>";
+}
+?>
 
-        else
-        {
-            echo "<div class="alert alert-danger">No food available</div>"
-        }
-         
-         
-         ?>
-        <div class="container">
-            <div class="Title" id = "Menu">Our Menu</div> 
-            <div class="row" id="menuRow"></div>
         </div>
         
 </body>

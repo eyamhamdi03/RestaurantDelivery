@@ -51,14 +51,6 @@ async function updateNavigationBar(userStatus) {
             let newCol = document.createElement("div");
             newCol.classList.add("col");
     
-            let addNewDishButton = document.createElement("button");
-            addNewDishButton.classList.add("btn", "btn-success");
-            addNewDishButton.textContent = "Add New Dish";
-            newCol.appendChild(addNewDishButton);
-            newRow.appendChild(newCol);
-            addNewDishButton.addEventListener("click", () => {
-                window.location.href = "add-new-food.php"; // Redirect to add new dish page
-            });
             let menuSection = document.getElementById("Menu");
             menuSection.insertAdjacentElement("afterend", newRow);
         } else if (userStatus === "normal") {
