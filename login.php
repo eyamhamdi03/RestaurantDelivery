@@ -22,10 +22,10 @@
             <input type="password" name="password" placeholder="*********">
             <input type="submit" value="Get Started">
         </form>
-        <div class="signup"><a href="signup.html" style="color: #DC2F02; text-align: center; margin-left: 120px;">Create new account!</a></div>
+        <div class="signup"><a href="signup.php" style="color: #DC2F02; text-align: center; margin-left: 120px;">Create new account!</a></div>
 
     </section>
-    <div><a href="home.html" class="custom-link">X</a></div>
+    <div><a href="home.php" class="custom-link">X</a></div>
 
 </body>
 
