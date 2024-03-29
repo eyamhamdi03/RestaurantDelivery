@@ -63,7 +63,7 @@
             <div class="time">30min(4DT)</div>
           </div>
         </div>
-        <input type="submit" href="order.html" value="Next Step">
+        <input type="submit" href="order.php" value="Next Step">
     </div>
         </div>
         <div id="photo2"></div>

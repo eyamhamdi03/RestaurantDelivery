@@ -15,7 +15,6 @@
         </g>
     </svg>
 
-    <!-- nav.html -->
     <?php include ('nav.php');?>
     <div id="nav-placeholder"></div>
     
@@ -47,12 +46,56 @@
             </div>
         </div>        
         <img src="assets/decor2.png" class="decor-img">
-        
+
         <div class="container">
             <div class="Title" id = "Menu">Our Menu</div> 
-            <div class="row" id="menuRow"></div>
+            <div class="row" id="menuRow"> </div>
+            <?php
+$db = new PDO('mysql:host=localhost;dbname=RestaurantDelivery', 'root', '');
+
+$sql = "SELECT * FROM menu";
+$res = $db->query($sql);
+$count = $res->rowCount();
+if ($count > 0) {
+    while ($row = $res->fetch(PDO::FETCH_ASSOC)) {
+        $id = $row['dishId'];
+        $name = $row['dishName'];
+        $price = $row['dishPrice'];
+        $description = $row['Description'];
+        $photo = !empty($row['dishPhoto']) ? "assets/food/" . $row['dishPhoto'] : "assets/food/nofood.jpg";
+        ?>
+        <div class="card-wrapper">
+            <div class="card">
+            <img src="<?php echo $photo ?>" class="card-img-top cover-img" alt="Food Photo">
+            <style>.cover-img {
+        object-fit: cover;    
+        width: 300px; 
+     height: 300px;
+    object-fit: cover; 
+}
+</style>   
+            <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="review">
+                            <span class="text-muted">Dining & Delivery</span>
+                        </div>
+                        <div class="price"><?php echo $price ?><span> DT</span></div>
+                    </div>
+                    <h5 class="card-title" style="margin-top: 10px; margin-bottom: 10px;"><?php echo $name ?></h5>
+                    <p class="text-muted"><?php echo $description ?></p>
+                    <a href="#" class="btn-danger btn">Delete</a>
+                </div>
+            </div>
+        </div>
+        <?php
+    }
+} else {
+    echo "<div class='alert alert-danger'>No food available</div>";
+}
+?>
+
         </div>
         
 </body>
-    <?php include ('footer.php');?>
+<?php include ('footer.php');?>
 </html>

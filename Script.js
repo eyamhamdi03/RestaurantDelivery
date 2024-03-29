@@ -1,13 +1,10 @@
 var userStatus = "admin"; // changed to var for compatibility with the rest of the code
-
-async function fetchData() {
-    updateNavigationBar(userStatus);
-    updateButtons(userStatus);
-
-    renderMenu(); // Assuming this function is defined elsewhere in your code
-}
-
 fetchData();
+var cards = [];
+var menuRow = document.getElementById("menuRow");
+var rows = document.querySelectorAll(".row");
+renderMenu(); // Render the menu initially
+
 async function updateButtons(userStatus) {
         var getStartedBtn = document.querySelector(".FillBtn");
         var createAccountBtn = document.querySelector(".OffBtn");
@@ -73,58 +70,6 @@ async function updateNavigationBar(userStatus) {
             `;
         }
     }
-    
-    
-
-
-var cards = [
-    { name: "Chicken Salad", price: "10.25 DT", photo: "assets/Food Photo.png",description :"description" },
-    { name: "Margherita Pizza", price: "12.50 DT", photo: "assets/2.png" ,description :"description" },
-    { name: "Chicken Alfredo Pasta", price: "15.75 DT", photo: "assets/3.png",description :"description" },
-    { name: "Classic Cheeseburger", price: "8.99 DT", photo: "assets/4.png" ,description :"description"},
-];
-
-var menuRow = document.getElementById("menuRow");
-var rows = document.querySelectorAll(".row");
-
-function renderMenu() {
-    menuRow.innerHTML = ''; // Clear the menuRow
-    rows = document.querySelectorAll(".row"); // Reset the rows array
-
-    cards.forEach(function(card, index) {
-        if (index % 4 === 0) {
-            var newRow = document.createElement("div");
-            newRow.classList.add("row");
-            menuRow.appendChild(newRow);
-            rows = document.querySelectorAll(".row"); 
-        }
-
-        var lastRow = rows[rows.length - 1];
-
-        var cardDiv = document.createElement("div");
-        cardDiv.classList.add("col");
-        cardDiv.innerHTML = `
-            <div class="card-wrapper">
-                <div class="card">
-                    <img src="${card.photo}" class="card-img-top" alt="Food Photo">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="review">
-                                <div class="badge bg-success">4.4</div>
-                                <span class="text-muted">Dining & Delivery</span>
-                            </div>
-                            <div class="price">${card.price}</div>
-                        </div>
-                        <h5 class="card-title" style="margin-top: 10px; margin-bottom: 10px;">${card.name}</h5>
-                        <p class="text-muted">${card.description}</p>
-                        <a href="#" class="${userStatus === 'admin' ? 'btn-danger' : 'btn-primary'} btn" onclick="handleclick(event)">${userStatus === 'admin' ? 'Delete' : 'Order Now !'}</a>
-                    </div>
-                </div>
-            </div>
-        `;
-        lastRow.appendChild(cardDiv);
-    });
-}
 
 function handleclick(event) {
     if (userStatus === 'admin') {
@@ -142,5 +87,29 @@ function handleclick(event) {
                 window.location.href = "login.php";
         }
     }}
-
-renderMenu(); // Render the menu initially
+    async function fetchMenuItems() {
+        try {
+            const response = await fetch('get-menu.php');
+            const menuItems = await response.json();
+            return menuItems.map(item => ({
+                name: item.dishName,
+                price: item.dishPrice + " DT",
+                photo: "assets/food/" + item.dishPhoto,
+                description: item.description
+            }));
+        } catch (error) {
+            console.error('Error fetching menu items:', error);
+            return [];
+        }
+    }
+    async function fetchData() {
+        updateNavigationBar(userStatus);
+        updateButtons(userStatus);
+    
+        const menuItems = await fetchMenuItems();
+        cards.push(...menuItems);
+    
+        renderMenu();
+    }
+    
+    

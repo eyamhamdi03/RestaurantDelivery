@@ -26,6 +26,7 @@
       <button type="submit" class="submit-button">Send Now</button>
     </form>
   </section>
+
   <div id="successMessage" class="success-message" style="display: none;">We have received your email. Thank you for contacting us. We will reply to you as soon as possible!</div>
   <script src="https://web3forms.com/client/script.js" async defer></script>
   <script src="scriptcontactus.js"> </script>

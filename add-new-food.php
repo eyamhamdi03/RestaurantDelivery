@@ -1,5 +1,8 @@
-
+<?php
+define('SITEURL', 'http://localhost/RestaurantDelivery/');
+?>
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,8 +11,6 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="Styles.css">
     <link rel="stylesheet" href="style2login.css">
-    <script src="Script.js" defer></script>
-    <script src="scriptADD.js"></script>
     <style>
         body {
             display: flex;
@@ -28,9 +29,10 @@
         }
     </style>
 </head>
+<?php include ('nav.php');?>
+
 <body>
-    <div id="nav-placeholder"></div>
-    <div class="Title" id="Orders" style="text-align: center">Add to menu</div>
+    <div class="Title" id="Orders" style="text-align: center ;margin-top:100px;">Add to menu</div>
     <form action="" method="post" class="form"  id="addDishForm" enctype="multipart/form-data" >
         <div class="form-group">
             <div class="text">Dish Name:</div>
@@ -42,13 +44,14 @@
         </div>
         <div class="form-group">
             <div class="text">Description:</div>
-            <input type="text" class="form-control" name="dishPrice" placeholder="Description" cols=30 style="width: 100%;">
+            <input type="text" class="form-control" name="description" placeholder="Description" cols="30" style="width: 100%;">
         </div>
+
         <div class="form-group">
             <div class="text">Dish photo:</div>
             <input type="file" class="form-control-file" name="dishPhoto" style="width: 100%;">
         </div>
-        <input type="submit" value="Add to menu" class="btn btn-primary">
+        <input type="submit" value="Add to menu" name="submit" class="btn btn-primary">
     </form>
     <?php
     if (isset($_POST['submit'])) {
@@ -56,13 +59,16 @@
         $dishPrice = $_POST['dishPrice'];
         $description = $_POST['description'];
 
+        if (empty($dishName) || empty($dishPrice) || empty($dishPhoto)) {
+            echo '<script>alert("Please fill in all fields.");</script>';}
+        else{
         //check if the select image is clicked or not 
         if (isset($_FILES['dishPhoto']['name'])) {
             $dishPhoto = $_FILES['dishPhoto']['name'];
             if ($dishPhoto !== "") {
                 //image is selected
                 $ext = explode('.', $dishPhoto);
-                $dishPhoto="dishName".rand(0000,9999).".".$ext;
+                $dishPhoto = $dishName.rand(0000,9999) . "." . $ext[count($ext) - 1];
                 //src path of the current location of the image
                 $src=$_FILES['dishPhoto']['tmp_name'];
                 // destination path for the image 
@@ -80,27 +86,19 @@
            $dishPhoto=""; // select default value as blanc
         }
 
-        $dishPhoto = $_FILES['dishPhoto']['name'];
-        $target = "images/".basename($dishPhoto);
-        $db = new PDO('mysql:host=localhost;dbname=restaurant', 'root', '');
-        $sql = "INSERT INTO menu
-        dishName ='$dishName',
-        dishPrice = '$dishPrice',
-        description = '$description',
-        dishPhoto = '$dishPhoto'";
-    //execute the query
-       $res =mysqli_query($conn, $sql);
-         if ($res==true) {
-              $_SESSION['add']="<div class='success'>Dish added successfully</div>";
-              header('location:'.SITEURL.'home.php');}
-        else{
-            $_SESSION['add']="<div class='error'>Failed to add dish</div>";
-            header('location:'.SITEURL.'home.php');
+        $db = new PDO('mysql:host=localhost;dbname=RestaurantDelivery', 'root', '');
+        $sql = "INSERT INTO menu ( dishName, dishPrice, description, dishPhoto) VALUES ( '$dishName', '$dishPrice', '$description', '$dishPhoto')";
+    
+        try {
+            $db->query($sql);
+            echo '<script>alert("Dish added successfully"); window.location.href = "'.SITEURL.'home.php";</script>';
+        } catch (PDOException $e) {
+            echo '<script>alert("Failed to add dish: ' . $e->getMessage() . '");window.location.href = "'.SITEURL.'home.php";</script>';
         }
-    }
+    }  }
     ?>
+    
 </body>
-<footer class="fixed-bottom">
-    <div id="footer-placeholder"></div>
-</footer>
+<?php include ('footer.php');?>
+
 </html>
