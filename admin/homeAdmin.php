@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-define('SITEURL', 'http://localhost/RestaurantDelivery/'); // Adjust the URL as needed
+define('SITEURL', 'http://localhost/RestaurantDelivery/admin/'); // Adjust the URL as needed
 
 
 ?>
@@ -10,9 +10,9 @@ define('SITEURL', 'http://localhost/RestaurantDelivery/'); // Adjust the URL as 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="Styles.css">
-    <script src="Script.js" defer></script>
+    <link rel="stylesheet" href="../Styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="script.js"></script>
 </head>
 <body     style="padding-bottom: 60px; ">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1529 848" fill="none" class="svg-background">
@@ -21,9 +21,7 @@ define('SITEURL', 'http://localhost/RestaurantDelivery/'); // Adjust the URL as 
         </g>
     </svg>
 
-    <?php include ('nav.php');?>
-    <div id="nav-placeholder"></div>
-    
+    <?php include ('nav.php');?>    
     <section>
         <div class="row" id="row1">
             <div class="col">
@@ -33,31 +31,31 @@ define('SITEURL', 'http://localhost/RestaurantDelivery/'); // Adjust the URL as 
                 </div>
             </div>
             <div class="col">
-                <img class="Hamburger" src="assets/Hamburger.jpg" />
+                <img class="Hamburger" src="../assets/Hamburger.jpg" />
             </div>
         </div>
         <div class="row justify-content-center" style="margin-top: 40px;">
             <div class="col-auto">
-                <button class="FillBtn">Get Started</button>
+                <button class="FillBtn">Manage Menu</button>
             </div>
             <div class="col-auto">
-                <button class="OffBtn">Create Account</button>
+                <button class="OffBtn">Manage orders</button>
             </div>
         </div>
         
 
         <div class="row">
             <div class="col">
-                <img src="assets/scroll down.png" style="margin-top: 20px;">
+                <img src="../assets/scroll down.png" style="margin-top: 20px;">
             </div>
         </div>        
-        <img src="assets/decor2.png" class="decor-img">
+        <img src="../assets/decor2.png" class="decor-img">
 
         <div class="container">
             <div class="Title" id = "Menu" style = "align-items =center;">Our Menu</div> 
             <div class="row justify-content-center">
     <div class="col-auto">
-        <button id="addNewDishButton" class="btn btn-success">Add New Dish</button>
+        <a href="add-new-food.php" id="addNewDishButton" class="btn btn-success">Add New Dish</a>
     </div>
 </div>
 
@@ -80,7 +78,7 @@ if ($count > 0) {
         ?>
         <div class="card-wrapper">
             <div class="card">
-            <img src="<?php echo $photo ?>" class="card-img-top cover-img" alt="Food Photo">
+            <img src="<?php echo $photo ?>" class="card-img-top cover-img" alt="<?php echo $photo?>">
             <style>.cover-img {
         object-fit: cover;    
         width: 300px; 
@@ -116,8 +114,6 @@ function confirmDelete(id) {
 }
 ?>
 
-        </div>
-        
+    </section>
 </body>
-<?php include ('footer.php');?>
 </html>
