@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="script.js"></script>
 </head>
-<body     style="padding-bottom: 60px; ">
+<bodyS>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1529 848" fill="none" class="svg-background">
         <g filter="url(#filter0_d_3_4691)">
             <path d="M1528.62 0V781C1394.57 846.2 1270.91 636 1043.41 699.5C1043.41 699.5 751.759 781 621.84 590C621.84 590 514.722 415 285.64 548C285.64 548 93.1469 619 -0.182983 498V0H1528.62Z" fill="white"/>
@@ -18,9 +18,9 @@
     <?php include ('nav.php');?> 
     <?php
     session_start(); // Start the session
-
+    
     ?>   
-    <section>
+    <section style="overflow-y:scroll;">
         <div class="row" id="row1">
             <div class="col">
                 <div class="FoodDelivery" style="width: 100%; height: 100%">
@@ -32,14 +32,23 @@
                 <img class="Hamburger" src="../assets/Hamburger.jpg" />
             </div>
         </div>
-        <div class="row justify-content-center" style="margin-top: 40px;">
-            <div class="col-auto">
-                <button class="FillBtn">Manage Menu</button>
-            </div>
-            <div class="col-auto">
-                <button class="OffBtn">Manage orders</button>
-            </div>
-        </div>
+        <style>
+    .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+   }
+</style>
+
+<div class="row justify-content-center" style="margin-top: 40px;">
+    <div class="col-auto">
+        <a href="#Menu" class="FillBtn btn" onclick="scrollToElement('Menu')">Manage Menu</a>
+    </div>
+    <div class="col-auto">
+        <a href="Orders.php" class="OffBtn btn">Manage orders</a>
+    </div>
+</div>
+
         
 
         <div class="row">
@@ -112,6 +121,8 @@ function confirmDelete(id) {
 }
 ?>
 
-    </section>
+
+    </section>            <div class="row" > </div>
+
 </body>
 </html>

@@ -13,7 +13,6 @@ include('logincheck.php');
     <div class="menu-items">
         <a href="homeAdmin.php" id="home">Home</a>
         <a href="ManageAdmin.php" id="home">Admin</a>
-        <a href="MenuAdmin.php">Menu</a>
         <a href="OrdersAdmin.php">Orders</a>
         <a href="logout.php">Logout</a>        
     </div>
