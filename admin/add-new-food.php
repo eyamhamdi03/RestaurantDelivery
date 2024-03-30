@@ -29,7 +29,7 @@
 </head>
 <?php include ('nav.php');?>
 
-<body>
+<body style = "margin-bottom : 30px">
     <div class="Title" id="Orders" style="text-align: center ;margin-top:100px;">Add to menu</div>
     <form action="" method="post" class="form"  id="addDishForm" enctype="multipart/form-data" >
         <div class="form-group">
@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
     if (isset($_FILES['dishPhoto']['name']) && $_FILES['dishPhoto']['name'] !== "") {
         $dishPhoto = $_FILES['dishPhoto']['name'];
         $ext = pathinfo($dishPhoto, PATHINFO_EXTENSION);
-        $newFileName = "dishName" . rand(0000, 9999) . "." . $ext;
+        $newFileName = $dishName . rand(0000, 9999) . "." . $ext;
         $src = $_FILES['dishPhoto']['tmp_name'];
         $dst = "assets/food/" . $newFileName;
 
