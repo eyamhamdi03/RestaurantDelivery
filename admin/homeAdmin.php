@@ -1,10 +1,4 @@
 <!DOCTYPE html>
-<?php
-define('SITEURL', 'http://localhost/RestaurantDelivery/admin/'); // Adjust the URL as needed
-
-
-?>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,7 +15,11 @@ define('SITEURL', 'http://localhost/RestaurantDelivery/admin/'); // Adjust the U
         </g>
     </svg>
 
-    <?php include ('nav.php');?>    
+    <?php include ('nav.php');?> 
+    <?php
+    session_start(); // Start the session
+
+    ?>   
     <section>
         <div class="row" id="row1">
             <div class="col">

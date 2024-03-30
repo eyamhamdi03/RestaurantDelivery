@@ -1,6 +1,4 @@
-<?php
-define('SITEURL', 'http://localhost/RestaurantDelivery/Admin/');
-?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -40,11 +38,11 @@ define('SITEURL', 'http://localhost/RestaurantDelivery/Admin/');
         </div>
         <div class="form-group">
             <div class="text">Dish Price:</div>
-            <input type="number" class="form-control" name="dishPrice" placeholder="15" style="width: 100%;">
+            <input type="number" class="form-control" name="dishPrice" placeholder="15" style="width: 100%;" required>
         </div>
         <div class="form-group">
             <div class="text">Description:</div>
-            <input type="text" class="form-control" name="description" placeholder="Description" cols="30" style="width: 100%;">
+            <input type="text" class="form-control" name="description" placeholder="Description" cols="30" style="width: 100%;" required>
         </div>
 
         <div class="form-group">
@@ -54,51 +52,54 @@ define('SITEURL', 'http://localhost/RestaurantDelivery/Admin/');
         <input type="submit" value="Add to menu" name="submit" class="btn btn-primary">
     </form>
     <?php
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {
     $dishName = $_POST['dishName'];
     $dishPrice = $_POST['dishPrice'];
     $description = $_POST['description'];
 
-    if (empty($dishName) || empty($dishPrice)) {
-        echo '<script>alert("Please fill in all fields.");</script>';
+    // Check if an image is selected
+    if (isset($_FILES['dishPhoto']['name']) && $_FILES['dishPhoto']['name'] !== "") {
+        $dishPhoto = $_FILES['dishPhoto']['name'];
+        $ext = pathinfo($dishPhoto, PATHINFO_EXTENSION);
+        $newFileName = "dishName" . rand(0000, 9999) . "." . $ext;
+        $src = $_FILES['dishPhoto']['tmp_name'];
+        $dst = "assets/food/" . $newFileName;
+
+        // Upload the image
+        if (!move_uploaded_file($src, $dst)) {
+            $_SESSION['upload'] = "<div class='error'>Failed to upload image</div>";
+            header('location: add-new-food.php');
+            die();
+        }
     } else {
-        $dishPhoto = "";
-        if (isset($_FILES['dishPhoto']['name'])) {
-            $fileTmpPath = $_FILES['dishPhoto']['tmp_name'];
-            $fileName = $_FILES['dishPhoto']['name'];
-            $fileSize = $_FILES['dishPhoto']['size'];
-            $fileType = $_FILES['dishPhoto']['type'];
-            $fileNameCmps = explode(".", $fileName);
-            $fileExtension = strtolower(end($fileNameCmps));
-            $newFileName = $dishName . rand(0000, 9999) . '.' . $fileExtension;
-            $uploadFileDir = 'assets/food/';
-            $destPath = $uploadFileDir . $newFileName;    
-            } 
-        }
+        $dishPhoto = ""; // Set default value to blank
+    }
 
-        $dsn = 'mysql:host=localhost;dbname=RestaurantDelivery';
-        $username = 'root';
-        $password = '';
-        $options = array(
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_EMULATE_PREPARES => false
-        );
+    // Create a PDO connection
+    $dsn = 'mysql:host=localhost;dbname=RestaurantDelivery';
+    $username = 'root';
+    $password = '';
+    $options = array(
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_EMULATE_PREPARES => false
+    );
 
-        try {
-            $db = new PDO($dsn, $username, $password, $options);
+    try {
+        $db = new PDO($dsn, $username, $password, $options);
 
-            $sql = "INSERT INTO menu (dishName, dishPrice, description, dishPhoto) VALUES (:dishName, :dishPrice, :description, :dishPhoto)";
-            $stmt = $db->prepare($sql);
-            $stmt->execute(array(':dishName' => $dishName, ':dishPrice' => $dishPrice, ':description' => $description, ':dishPhoto' => $dishPhoto));
+        // Prepare and execute the SQL query
+        $sql = "INSERT INTO menu (dishName, dishPrice, description, dishPhoto) VALUES (:dishName, :dishPrice, :description, :dishPhoto)";
+        $stmt = $db->prepare($sql);
+        $stmt->execute(array(':dishName' => $dishName, ':dishPrice' => $dishPrice, ':description' => $description, ':dishPhoto' => $newFileName));
 
-            echo '<script>alert("Dish added successfully."); window.location.href = "' . SITEURL . 'homeAdmin.php";</script>';
-        } catch (PDOException $e) {
-            echo '<script>alert("Failed to add dish: ' . $e->getMessage() . '"); window.location.href = "' . SITEURL . 'homeAdmin.php";</script>';
-        }
+        $_SESSION['add'] = "<div class='success'>Dish added successfully</div>";
+        header('location: homeAdmin.php');
+        exit();
+    } catch (PDOException $e) {
+        $_SESSION['add'] = "<div class='error'>Failed to add dish: " . $e->getMessage() . "</div>";
+        exit();
     }
 }
 ?>
-
-    
 </body>
 </html>

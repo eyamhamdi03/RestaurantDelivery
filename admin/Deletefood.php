@@ -5,7 +5,7 @@ if(isset($_GET['id'])) {
     $sql = "DELETE FROM menu WHERE dishId = $id";
     $db->exec($sql);
     echo "Processing your deletion request...";
-    echo '<meta http-equiv="refresh" content="5;url=homeAdmin.php">';
+    echo '<meta http-equiv="refresh" content="2;url=homeAdmin.php">';
     exit();
 } else {
     echo "Access Denied";

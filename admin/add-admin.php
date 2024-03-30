@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<?php
-define('SITEURL', 'http://localhost/RestaurantDelivery/admin/'); // Adjust the URL as needed
-?>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">

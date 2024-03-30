@@ -5,7 +5,7 @@ if(isset($_GET['id'])) {
     $sql = "DELETE FROM Admins WHERE AdminId = $id";
     $db->exec($sql);
     echo "Processing your deletion request...";
-    echo '<meta http-equiv="refresh" content="5;url=ManageAdmin.php">';
+    echo '<meta http-equiv="refresh" content="2;url=ManageAdmin.php">';
     exit();
 } else {
     echo "Access Denied";
