@@ -108,7 +108,7 @@ nav {
     width: 323px;
     height: 323px;
     flex-shrink: 0;
-    background: url("../assets/Hamburger.jpg") lightgray 50% / cover no-repeat;
+    background: url("assets/Hamburger.jpg") lightgray 50% / cover no-repeat;
     mix-blend-mode: multiply;
 }
 .frame{
@@ -197,7 +197,7 @@ input[type="submit"] {
         width: 341.503px;
         height: 228px;
         flex-shrink: 0;
-       background: url("decor2.png") var(--Main-Primary-50, #FFF2E8) no-repeat;
+       background: url("assets/decor2.png") var(--Main-Primary-50, #FFF2E8) no-repeat;
     }
     footer{
         position: relative;
@@ -230,4 +230,11 @@ input[type="submit"] {
     }
     .social-media:nth-child(1){
         background: url("google-ic.svg");
+    }
+
+    h4{
+        font-family: poppins;
+    }
+    p{
+        font-family: poppins;
     }

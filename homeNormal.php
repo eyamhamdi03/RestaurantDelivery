@@ -69,7 +69,7 @@ if ($count > 0) {
         $name = $row['dishName'];
         $price = $row['dishPrice'];
         $description = $row['Description'];
-        $photo = !empty($row['dishPhoto']) ? "assets/food/" . $row['dishPhoto'] : "assets/food/nofood.jpg";
+        $photo = !empty($row['dishPhoto']) ? "Admin/assets/food/" . $row['dishPhoto'] : "Admin/assets/food/nofood.jpg";
         ?>
         <div class="card-wrapper">
             <div class="card">
@@ -91,7 +91,7 @@ if ($count > 0) {
                     <h5 class="card-title" style="margin-top: 10px; margin-bottom: 10px;"><?php echo $name ?></h5>
                     <p class="text-muted"><?php echo $description ?></p>
 
-                    <a href="order.php" class="btn btn-primary">Order Now!</a>
+                    <a href="order.php?foodid=<?php echo $id ?>" class="btn btn-primary">Order Now!</a>
 
 </script>
                 </div>
@@ -107,5 +107,4 @@ if ($count > 0) {
         </div>
         
 </body>
-<?php include ('footer.php');?>
 </html>

@@ -1,3 +1,5 @@
+<?php include('foodid.php');?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -52,19 +54,10 @@
         </div>
        </div>
     </div>
-    <input type="submit" value="Next Step" onclick="window.location.href='../afterpayment/step3.html';">
+    <input type="submit" href="step3.html?foodid=<?php echo $id ?>" value="Next Step">
  </div>
 <div id="photo2"></div>
-    <footer>
-        <span class="restaurant-name" id="footer">Restaurant Name</span>
-        <span>
-        <a href="#" class="social-media"></a>
-        <a href="#" class="social-media"></a>
-        <a href="#" class="social-media"></a>
-        <a href="#" class="social-media"></a>
-
-    </span>
-    </footer>
+    
     </body>
     <?php
         try {

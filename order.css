@@ -258,3 +258,10 @@ input[type="submit"] {
     flex-shrink: 0;
    background: url("assets/decor2.png") var(--Main-Primary-50, #FFF2E8) no-repeat;
 }
+
+h4{
+    font-family: poppins;
+}
+p{
+    font-family:poppins;
+}

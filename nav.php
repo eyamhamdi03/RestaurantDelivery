@@ -10,3 +10,23 @@
         <a href="login.php" id="login">Login</a>
     </div>
 </nav>
+
+<script>
+    window.addEventListener('load', function() {
+        var isLoggedIn = /* Your logic to check if the user is logged in */;
+        var loginButton = document.getElementById('login');
+        var ordersButton = document.getElementById('orders');
+
+        if (isLoggedIn) {
+            loginButton.innerText = 'Logout';
+            loginButton.href = 'logout.php'; // Change the href to the logout page
+            ordersButton.style.pointerEvents = 'auto'; // Enable the Orders button
+            ordersButton.style.color = ''; // Reset the color
+        } else {
+            loginButton.innerText = 'Login';
+            loginButton.href = 'login.php'; // Change the href back to the login page
+            ordersButton.style.pointerEvents = 'none'; // Disable the Orders button
+            ordersButton.style.color = 'rgb(101, 98, 98)'; // Set the color back to gray
+        }
+    });
+</script>

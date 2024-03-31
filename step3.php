@@ -1,3 +1,4 @@
+<?php include('foodid.php');?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -48,24 +49,4 @@
         </div>
         <div id="photo2"></div>
     </body>
-    <footer>
-        <div class="Footer">
-            <img class="footer-icon" src="fb-ic.svg" alt="Facebook Icon">
-            <img class="footer-icon" src="insta-ic.svg" alt="Instagram Icon">
-            <img class="footer-icon" src="tweet-ic.svg" alt="Twitter Icon">
-            <img class="footer-icon" src="google-ic.svg" alt="Google Icon">
-            <div class="restaurant-name">Restaurant Name</div>
-        </div>
-    </footer>
-
-
-
-
-
-
-
-
-
-
-
 </html>
