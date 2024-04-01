@@ -50,18 +50,18 @@
         </div>
     </div>
     <div id="frame2">
-        <div class="titre">Delivery Options</div>
-        <div class="box">
-            <input type="checkbox" class="check">
-            <div class="Standard">Standard Delivery</div>
-            <div class="time">(1hour,2DT)</div>
-        </div>
-        <div class="box">
-            <input type="checkbox" class="check">
-            <div class="Standard">Fast Delivery</div>
-            <div class="time">30min(4DT)</div>
-        </div>
-    </div>
+  <div class="titre">Delivery Options</div>
+  <div class="box">
+    <input type="radio" name="delivery" class="check" value="standard">
+    <div class="Standard">Standard Delivery</div>
+    <div class="time">(1 hour, 2 DT)</div>
+  </div>
+  <div class="box">
+    <input type="radio" name="delivery" class="check" value="fast">
+    <div class="Standard">Fast Delivery</div>
+    <div class="time">(30 min, 4 DT)</div>
+  </div>
+</div>
     <input type="submit" href="payment.php?foodid=<?php echo $id ?>" value="Next Step">
     </div>
     </div>
