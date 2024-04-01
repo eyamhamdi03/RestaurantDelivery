@@ -4,18 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orders</title>
-    <link rel="stylesheet" href="Styles.css">
+    <link rel="stylesheet" href="../Styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
 </head>
-<body >
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1529 848" fill="none" class="svg-background">
-        <g filter="url(#filter0_d_3_4691)">
-            <path d="M1528.62 0V781C1394.57 846.2 1270.91 636 1043.41 699.5C1043.41 699.5 751.759 781 621.84 590C621.84 590 514.722 415 285.64 548C285.64 548 93.1469 619 -0.182983 498V0H1528.62Z" fill="white"/>
-        </g>
-    </svg>
-
-    <!-- nav.html -->
+<body>
     <?php include ('nav.php');?>
 
     <div class="container">
@@ -33,17 +25,12 @@
                 <div class="row" id="OrdersRow">
                 <?php
 $db = new PDO('mysql:host=localhost;dbname=RestaurantDelivery', 'root', '');
-
-// Prepare the SQL query to select orders for the current user
 $sql = "SELECT uo.id, uo.foodid, uo.date_added AS date, uo.total, uo.delivery_option, uo.confirmed, m.dishName AS food_name
         FROM userorder uo
         JOIN menu m ON uo.foodid = m.dishId
-        WHERE uo.customerid = :userId
         ORDER BY uo.confirmed ASC, uo.date_added DESC";
 
-$stmt = $db->prepare($sql);
-$stmt->bindParam(':userId', $userId);
-$stmt->execute();
+$stmt = $db->query($sql);
 
 // Loop through each order and display it
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -67,18 +54,31 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                             <div class='price'>$total DT</div>
                             <span class='date'>$date</span>
                         </div>
+                        " . (!$row['confirmed'] ? "<button class='btn btn-success mt-auto' onclick='confirmOrder($id)'>Confirm Order</button>" : '') . "
                     </div>
                 </div>
             </div>
         </div>";
 }
 ?>
+<script>
+    function confirmOrder(orderId) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'confirm-order.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                window.location.reload();
+            }
+        };
+        xhr.send('orderId=' + orderId);
+    }
+</script>
+
 
                 </div>
             </div>
-            
         </div>
     </div>
-   
 </body>
 </html>

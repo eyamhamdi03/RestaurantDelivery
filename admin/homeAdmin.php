@@ -14,11 +14,9 @@
             <path d="M1528.62 0V781C1394.57 846.2 1270.91 636 1043.41 699.5C1043.41 699.5 751.759 781 621.84 590C621.84 590 514.722 415 285.64 548C285.64 548 93.1469 619 -0.182983 498V0H1528.62Z" fill="white"/>
         </g>
     </svg>
-
     <?php include ('nav.php');?> 
     <?php
     session_start(); // Start the session
-    
     ?>   
     <section>
         <div class="row" id="row1">
@@ -39,18 +37,14 @@
         justify-content: center;
    }
 </style>
-
 <div class="row justify-content-center" style="margin-top: 40px;">
     <div class="col-auto">
         <a href="#Menu" class="FillBtn btn" onclick="scrollToElement('Menu')">Manage Menu</a>
     </div>
     <div class="col-auto">
-        <a href="Orders.php" class="OffBtn btn">Manage orders</a>
+        <a href="OrdersAdmin.php" class="OffBtn btn">Manage orders</a>
     </div>
 </div>
-
-        
-
         <div class="row">
             <div class="col">
                 <img src="../assets/scroll down.png" style="margin-top: 20px;">
@@ -65,8 +59,6 @@
         <a href="add-new-food.php" id="addNewDishButton" class="btn btn-success">Add New Dish</a>
     </div>
 </div>
-
-
             <div class="row" id="menuRow"> </div>
             
             <?php

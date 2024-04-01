@@ -51,6 +51,7 @@
                 <span id="Total">Total:</span>
                 <span class="flous" id="total"></span>
             </div>
+            <div class="flous">Le paiement sera effectué à la livraison</div>
         </div>
        </div>
     </div>
