@@ -7,30 +7,9 @@
         <link rel="stylesheet" href="confirmation.css">
     </head>
     <body>
-        <nav id="navigation">
-            <div class="restaurant-name">Restaurant Name</div>
-            <div class="menu-items">
-            <a href="../home.html">Home</a>
-            <a href="#" style=" pointer-events: none; color: rgb(101, 98, 98); text-decoration: none;">Your Orders</a>
-            <a href="../get-in-touch.html">Contact Us</a>
-            <a href="../login.html">Logout</a>
-            </div>
-        </nav>
-        <div class="container">
-            <div class="step"> 
-                <p>01</p>
-                <h4>DELIVERY</h4>
-            </div>
-            <div class="step"> 
-              <p>02</p>
-              <h4>PAYMENT</h4>
-            </div>
- 
-         <div class="step active"> 
-          <p>03</p>
-          <h4>CONFIRM</h4>
-         </div>
-        </div>
+       <?php include('nav.php'); ?>
+       <?php include('steps.php');?>
+       
         <div id="photo"></div>
         <div class="frame">
             <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" fill="none">

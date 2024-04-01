@@ -31,7 +31,5 @@
   <script src="https://web3forms.com/client/script.js" async defer></script>
   <script src="scriptcontactus.js"> </script>
 </body>
-<footer>
-<?php include ('footer.php');?>
-</footer>
+
 </html>

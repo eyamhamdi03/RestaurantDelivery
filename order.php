@@ -4,28 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules\bootstrap\dist\css\bootstrap.min.css">
     <link rel="stylesheet" href="order.css">
+
     <title>Order</title>
 </head>
 <body>
     <?php include ('nav.php');?>
-
-    <div class="container">
-        <div class="step"> 
-            <p>01</p>
-            <h4>DELIVERY</h4>
-        </div>
-        <div class="step"> 
-            <p>02</p>
-            <h4>PAYMENT</h4>
-        </div>
-        <div class="step active"> 
-            <p>03</p>
-            <h4>CONFIRM</h4>
-        </div>
-    </div>
+    <?php include('steps.php');?>
     <div id="photo"></div>
+    <form action="orderprocess.php" method="POST">
     <div class="frame">
         <div class="titre">Address details</div>
         <div class="layout">
@@ -63,7 +51,9 @@
   </div>
 </div>
     <input type="submit" href="payment.php?foodid=<?php echo $id ?>" value="Next Step">
+
     </div>
+    </form>
     </div>
     <div id="photo2"></div>
 </body>
