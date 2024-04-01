@@ -15,6 +15,9 @@
         <div class="tilte"><span class="food">Food</span>
         <span class="delivery"> <br/> Delivery</span></div>
         <div class="par"><p>Sign up or login to expire our personalized top picks, tailored just for you.</p></div>
+            <?php if (isset($_GET['error'])){ ?>
+            <p class="error"><?php echo $_GET['error']; ?></p>
+            <?php } ?>
         <form action="" method="post" class="form">
             <div class="text">Email Address:</div>
             <input type="email" size="100px" name="email" placeholder="GuySimmmons@gmail.com" style="margin-bottom: 0px;">
