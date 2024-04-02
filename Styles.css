@@ -154,28 +154,6 @@ h5 {
     color: #252B33;
 }
 
-.Footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    background-color: #fff;
-    padding: 10px;
-    z-index: 1000;
-}
-
-
-.footer-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-    transition: transform 0.3s; 
-}
-
-.footer-icon:hover {
-    transform: scale(1.2); 
-}
-
 .restaurant-name {
     margin-left: 10px;
     color: #DC2F02;
@@ -210,19 +188,20 @@ section {
     padding: 0;
 }
 
+
 .btn-primary {
-    background-color: #FC8019;
-    border-color: #FC8019;
-    color: #FFF2E8;
     width: calc(100% - 20px);
     margin-right: 10px;
-}
-
-.btn-primary:hover,
-.btn-primary:active
-.btn-primary:focus {
-    background-color:#FC8019;
-    border-color:#FC8019;
+    --bs-btn-color: var(--bs-white);
+    --bs-btn-bg: #FC8019;
+    --bs-btn-border-color: #FC8019;
+    --bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: #FC8019;
+    --bs-btn-hover-border-color: #FC8019;
+    --bs-btn-focus-shadow-rgb: #FC8019;
+    --bs-btn-active-color: var(--bs-btn-hover-color);
+    --bs-btn-active-bg: #FC8019;
+    --bs-btn-active-border-color: #FC8019;
 }
 
 .card-wrapper {
