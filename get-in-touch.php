@@ -10,7 +10,6 @@
   
 </head>
 <body>
-<?php include ('nav.php');?>
 
   <section>
     <img src="assets/image 295.png" alt="">
@@ -25,6 +24,7 @@
       <textarea name="Message" id="msg" cols="30" rows="3" placeholder="Your message"></textarea>
       <button type="submit" class="submit-button">Send Now</button>
     </form>
+    <div><a href="homeNormal.php" class="custom-link">X</a></div>
   </section>
 
   <div id="successMessage" class="success-message" style="display: none;">We have received your email. Thank you for contacting us. We will reply to you as soon as possible!</div>

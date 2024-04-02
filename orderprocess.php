@@ -22,8 +22,8 @@
             }
         }
         $total=$dishPrice+$delveryfees;
-        $sql="INSERT INTO userorder ('customerid',`Street Address`, `Apt/Suite/Other`, `State/City`, `Code Postal`,'delivery option','total') VALUES (signup.id,'$street_address', '$Apt', '$State', '$code','$delivery','$total')";
-        header("Location : payment/payment.php");
+        $sql="INSERT INTO userorder ('customerid',`Street Address`, `Apt/Suite/Other`, `State/City`, `Code Postal`,'delivery option','total') VALUES ('".implode(',',$foodid)."','$street_address', '$Apt', '$State', '$code','$delivery','$total')";
+        header("Location : payment.php");
         if (mysqli_query($conn, $sql)) {
             echo "New record created successfully";
             header("Location: payment.php?foodid=" . $id . "&value=Next Step");
