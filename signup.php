@@ -26,7 +26,7 @@ if(isset($_POST['submit'])){
             $sql = "INSERT INTO signup (`First Name`, `Last Name`, `E-mail Address`, `Phone Number`, `Password`) VALUES ('$nom', '$last_name', '$Email', '$Phone', '$hash')";
             $result=mysqli_query($conn,$sql);
             if ($result){
-                header("Location: home.php");
+                header("Location: homesession.php");
                 exit;
             }
         }       
