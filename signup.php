@@ -111,7 +111,7 @@ if(isset($_POST['submit'])){
             </form>
         </div>
     </div>
-    <div><a href="home.php" class="custom-link">X</a></div>
+    <div><a href="homeNormal.php" class="custom-link">X</a></div>
 </body>
 </html>
 
