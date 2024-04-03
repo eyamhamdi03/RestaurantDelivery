@@ -1,5 +1,8 @@
 <?php
 include("connection.php");
+
+$errors = array();
+
 if(isset($_POST['submit'])){
     $nom=$_POST['nom'];
     $last_name=$_POST['last_name'];
@@ -7,6 +10,11 @@ if(isset($_POST['submit'])){
     $Phone=$_POST['Phone'];
     $Password=$_POST['Password'];
     $Confirmation=$_POST['Confirmation'];
+
+    // Password and confirmation match validation
+    if ($Password !== $Confirmation) {
+        $errors[] = "Password and confirmation do not match.";
+    }
 
     $sql="SELECT * FROM signup WHERE `First Name`='$nom'";
     $result=mysqli_query($conn,$sql);
@@ -21,9 +29,9 @@ if(isset($_POST['submit'])){
     $count_email=mysqli_num_rows($result);
 
     if($count_fname == 0 && $count_lname == 0 && $count_email == 0){
-        if($Password == $Confirmation){
+        if(empty($errors)){
             $hash=password_hash($Password, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO signup (`First Name`, `Last Name`, `E-mail Address`, `Phone Number`, `Password`) VALUES ('$nom', '$last_name', '$Email', '$Phone', '$hash')";
+            $sql = "INSERT INTO signup (`First Name`, `Last Name`, `E-mail Address`, `Phone Number`, `Pssword`) VALUES ('$nom', '$last_name', '$Email', '$Phone', '$hash')";
             $result=mysqli_query($conn,$sql);
             if ($result){
                 header("Location: homesession.php");
@@ -33,19 +41,14 @@ if(isset($_POST['submit'])){
     }
     else{
         if($count_fname > 0 && $count_lname > 0 ){
-            echo  '<script>
-                window.location.href="signup.php";
-                alert("First Name and Last Name already exist !!")
-                </script>';
+            $errors[] = "First Name and Last Name already exist.";
         }
         if($count_email > 0  ){
-            echo  '<script>
-                window.location.href="signup.php";
-                alert("Email already exists !!")
-            </script>';
+            $errors[] = "Email already exists.";
         }
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -76,42 +79,53 @@ if(isset($_POST['submit'])){
             <span class="delivery"> <br/> Delivery</span></div>
             <div class="par" style="margin-top: 20px;"><p>Sign up to expire our personalized top picks, tailored just for you.</p></div>
           </div>
+          <div style="display: flex; justify-content: center; align-items: center; height: 60px;">
+            <?php if(!empty($errors)): ?>
+            <div class="alert alert-danger" style="width: 80%; height:60px;">
+            <ul>
+                <?php foreach ($errors as $error): ?>
+                    <li><?php echo $error; ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
+</div>
+
             <form action="" method="post" style="align-items: center; text-align: center; margin-top: 0px;">
                 <div class="layout">
                     <div class="name">
                         <span class="text">First Name :</span><br>
-                        <input class="inpu" type="text" name="nom" size="15" maxlength="30" placeholder="First Name"> <br>
+                        <input class="inpu" type="text" name="nom" size="15" maxlength="30" placeholder="First Name" required> <br>
                     </div>
                     <div class="name">
                         <span class="text"> Last Name :</span><br>
-                        <input class="inpu" type="text" name="laste-name" size="15" maxlength="30" placeholder="Last Name"> <br>
+                        <input class="inpu" type="text" name="last_name" size="15" maxlength="30" placeholder="Last Name" required> <br>
                     </div>
                 </div>
                 <div class="layout">
                     <div class="name">
                         <span class="text"> E-mail Address:</span> <br>
-                        <input class="inpu" type="email" name="Email" size="15" maxlength="30" placeholder="Email address"> <Br>
+                        <input class="inpu" type="email" name="Email" size="15" maxlength="30" placeholder="Email address" required> <Br>
                     </div>
                     <div class="name">
                         <span class="text">Phone Number:</span><br>
-                        <input class="inpu" type="number" name="Phone" size="15" maxlength="30" placeholder="Phone number"> <Br>
+                        <input class="inpu" type="number" name="Phone" size="15" maxlength="30" placeholder="Phone number" required> <Br>
                     </div>
                 </div>
                 <div class="layout">
                     <div class="name">
                         <span class="text">Password:</span> <br>
-                        <input class="inpu" type="password" name="Password" size="15" maxlength="30" placeholder="Password"> <Br>
+                        <input class="inpu" type="password" name="Password" size="15" maxlength="30" placeholder="Password" required> <Br>
                     </div>
                     <div class="name">
                         <span class="text">Password Confirmation:</span> <br>
-                        <input class="inpu" type="password" name="Confirmation" size="15" maxlength="30" placeholder="Confirm Password"> <Br>
+                        <input class="inpu" type="password" name="Confirmation" size="15" maxlength="30" placeholder="Confirm Password" required> <Br>
                     </div>
                 </div>
-                <input type="submit"  value="Create Account" >
+                <input type="submit" name="submit" value="Create Account" >
             </form>
         </div>
     </div>
     <div><a href="homeNormal.php" class="custom-link">X</a></div>
 </body>
 </html>
-

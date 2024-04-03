@@ -42,8 +42,8 @@ top:40px;
 
 }
 .layout{
-top:40px;
-margin:40px;
+margin-left:30px important;
+margin:10px;
 position: relative;
 display: flex;
 width: 708px;
@@ -68,13 +68,15 @@ font-size: 13px;
 font-style: normal;
 font-weight: 400;
 line-height: 18px; /* 138.462% */
+border-radius: 5%;
+border: 1px solid white;
 }
 input[type="submit"] {
     position: relative;
     float :left;
     box-align:center;
     left:200px;
-    top:30px;
+    top:10px;
     width: 400px;
     height: 50px;
     background: linear-gradient(360deg, #F0745E 0%, #FF330F 100%);
@@ -92,22 +94,4 @@ font-size: 15px;
 font-style: normal;
 font-weight: 700;
 line-height: 18px; /* 120% */
-}
-.food{
-    color: #DC2F02;
-font-family: Poppins;
-font-size: 80px;
-font-style: normal;
-font-weight: 700;
-line-height: 86px; /* 107.5% */
-text-transform: capitalize;
-}
-.Delivery{
-color: #370617;
-font-family: Poppins;
-font-size: 80px;
-font-style: normal;
-font-weight: 700;
-line-height: 86px;
-text-transform: capitalize;
 }
