@@ -21,7 +21,7 @@
             <input type="text" size="100px" name="username" placeholder="GuySimmmons" style="margin-bottom: 0px;" required>
             <div class="text">Password:</div>
             <input type="password" name="password" placeholder="*********" required>
-            <input type="submit" name="submit" value="Get Started"> <!-- Added name attribute to the submit button -->
+            <input type="submit" name="submit" value="Get Started">
         </form>
     </section>
 

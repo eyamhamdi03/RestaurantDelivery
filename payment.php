@@ -1,50 +1,27 @@
 <?php
-if(isset($_GET['foodid'])) {
-  $foodid= $_GET['foodid'];
-} else {
-    echo "<script>alert('Food ID not provided. Redirecting to homepage.'); window.location.href = 'homeNormal.php';</script>";
-    exit();
+
+include ('logincheck.php');
+
+if (!isset($_GET['dishPrice']) || !isset($_GET['deliveryfees']) || !isset($_GET['total'])) {
+    $_SESSION['message'] = "Please choose an item to order first.";
+    header("Location: homeNormal.php");
+    exit; 
 }
 
-$price=0;
-// Connect to the database
-$db = new PDO('mysql:host=localhost;dbname=RestaurantDelivery', 'root', '');
+$dishPrice = $_GET['dishPrice'];
+$deliveryfees = $_GET['deliveryfees'];
+$total = $_GET['total'];
 
-if ($foodid) {
-    // Query to get the dishPrice based on the foodid
-    $stmt = $db->prepare("SELECT dishPrice FROM menu WHERE dishId = ?");
-    if ($stmt) {
-        // Bind the parameter
-        $stmt->bindParam(1, $foodid, PDO::PARAM_INT);
-        
-        // Execute the statement
-        if ($stmt->execute()) {
-            // Fetch the result
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            if ($row) {
-                $price = $row['dishPrice'];
-            } else {
-                $price = 'Not found'; // Set a default value if the foodid is not found
-            }
-        } else {
-            $errorInfo = $stmt->errorInfo();
-            $price = 'Error: ' . $errorInfo[2];
-        }
-    } else {
-        $errorInfo = $db->errorInfo();
-        $price = 'Error: ' . $errorInfo[2];
-    }
-    echo $price;
-}
+
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
     <title id="head">Payment</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="payment.css">
-
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="node_modules\bootstrap\dist\css\bootstrap.min.css">
 </head>
 <body>
     <?php include('nav.php'); ?>
@@ -55,7 +32,7 @@ if ($foodid) {
         <div id="group">
             <div class="layout">
                 <span class="details">Order:</span>
-                <span class="flous" id="order"><?php echo $price; ?>.00 Dt</span>
+                <span class="flous" id="order"><?php echo $dishPrice; ?>.00 Dt</span>
             </div>
             <div class="layout">
                 <span class="details">Discount:</span>
@@ -63,19 +40,21 @@ if ($foodid) {
             </div>
             <div class="layout">
                 <span class="details">Delivery:</span>
-                <span class="flous" id="Delivery">2.00 Dt</span>
+                <span class="flous" id="Delivery"><?php echo $deliveryfees ?>.00 Dt</span>
             </div>
             <div class="layout">
                 <span id="Total">Total:</span>
-                <span class="flous" id="total"></span>
+                <span class="flous" id="total"><?php echo $total?>.00 Dt</span>
             </div>
+            <div class="layout">
             <div class="flous">Le paiement sera effectué à la livraison</div>
+            </div>
+            <div class="layout" style="align-items:center;">
+            <a href="step3.php" class="FillBtn btn" style="margin-top:50px; margin-left:70px;">Next Step</a>
+            </div>
         </div>
     </div>
-    </div>
     
-    <input type="submit"value="Next Step" onclick="window.location.href='step3.php?foodid=<?php echo $id ?>';">
     <div id="photo2"></div>
-    <script src="payment.js"></script>
 </body>
 </html>

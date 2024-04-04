@@ -1,47 +1,48 @@
 <?php
+session_start(); 
 include("connection.php");
-if (isset($_POST['email']) && isset($_POST['password'])){
+
+if (isset($_POST['email']) && isset($_POST['password'])) {
     function validate($data){
-        $data=trim($data);
-        $data=stripslashes($data);
-        $data=htmlspecialchars($data);
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
         return $data;
     }
-    $email=validate($_POST['email']);
-    $password=validate($_POST['password']);
+    
+    $email = validate($_POST['email']);
+    $password = validate($_POST['password']);
 
-    if (empty($email)){
+    if (empty($email)) {
         header("Location: login.php?error=Email is required");
         exit();
-    }else if(empty($password)){
+    } elseif (empty($password)) {
         header("Location: login.php?error=Password is required");
         exit();
-    }else{
-        
-        $sql = "SELECT * FROM signup WHERE `E-mail Address`='$email'";
-        $result = mysqli_query($conn, $sql);
-        if (mysqli_num_rows($result) === 1) {
-            $row = mysqli_fetch_assoc($result);
+    } else {
+        $stmt = $conn->prepare("SELECT * FROM signup WHERE `E-mail Address` = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows === 1) {
+            $row = $result->fetch_assoc();
             if ($row['E-mail Address'] === $email && password_verify($password, $row['Pssword'])) {
-                $_SESSION['email'] = $row['E-mail Address'];
-                $_SESSION['Fname'] = $row['First Name'];
-                $_SESSION['Lname'] = $row['Last Name'];
                 $_SESSION['id'] = $row['id'];
+                $_SESSION['loggedIn'] = true; 
                 header("Location: homesession.php");
                 exit();
-          
-        
-            }else{
-                header("Location: login.php?error=Incorect Email or Password");
+            } else {
+                header("Location: login.php?error=Incorrect Email or Password");
                 exit();
             }
-        }else{
-            header("Location: login.php?error=Incorect Email or Password");
+        } else {
+            header("Location: login.php?error=Incorrect Email or Password");
             exit();
         }
     }
-}else{
-    header("Location: homeNormal.php");
+} else {
+    header("Location: login.php?error=Please enter your credentials");
     exit();
-}
-?> 
+} 
+?>

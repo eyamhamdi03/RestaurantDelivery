@@ -1,3 +1,9 @@
+<?php
+include('logincheck.php');
+$userId = $_SESSION['id'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" style="overflow-y: auto; ">
 <head>

@@ -11,7 +11,6 @@ define('SITEURL', 'http://localhost/RestaurantDelivery/'); // Adjust the URL as 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="Styles.css">
-    <script src="Script.js" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -22,8 +21,6 @@ define('SITEURL', 'http://localhost/RestaurantDelivery/'); // Adjust the URL as 
     </svg>
 
     <?php include ('nav.php');?>
-    <div id="nav-placeholder"></div>
-    
     <section>
         <div class="row" id="row1">
             <div class="col">
@@ -36,15 +33,31 @@ define('SITEURL', 'http://localhost/RestaurantDelivery/'); // Adjust the URL as 
                 <img class="Hamburger" src="assets/Hamburger.jpg" />
             </div>
         </div>
+        
+        <?php
+    if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
+        echo '
         <div class="row justify-content-center" style="margin-top: 40px;">
             <div class="col-auto">
-                <button class="FillBtn">Get Started</button>
+                <a href="#Menu" class="FillBtn btn">Menu</a>
             </div>
             <div class="col-auto">
-                <button class="OffBtn">Create Account</button>
+                <a href="Orders.php" class="OffBtn btn">Your Orders</a>
             </div>
-        </div>
-        
+        </div>';
+    } 
+    else {
+        echo '
+        <div class="row justify-content-center" style="margin-top: 40px;">
+            <div class="col-auto">
+                <a href="login.php" class="FillBtn btn">Get Started</a>
+            </div>
+            <div class="col-auto">
+                <a href="signup.php" class="OffBtn btn">Create Account</a>
+            </div>
+        </div>';
+    }
+?>
 
         <div class="row">
             <div class="col">
@@ -92,8 +105,6 @@ if ($count > 0) {
                     <p class="text-muted"><?php echo $description ?></p>
 
                     <a href="order.php?foodid=<?php echo $id ?>" class="btn btn-primary">Order Now!</a>
-
-</script>
                 </div>
             </div>
         </div>
@@ -108,3 +119,6 @@ if ($count > 0) {
         
 </body>
 </html>
+
+
+

@@ -1,3 +1,4 @@
+
 <div class="container">
     <div class="<?php echo (strpos($_SERVER['SCRIPT_NAME'], '/order.php') !== false || (strpos($_SERVER['SCRIPT_NAME'], '/payment.php') !== false || strpos($_SERVER['SCRIPT_NAME'], '/step3.php') !== false)) ? 'active' : 'inactive'; ?>"> 
         <div class="circle">01</div>

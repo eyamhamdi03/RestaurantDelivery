@@ -1,57 +1,49 @@
 <?php
+session_start();include('alreadylogged.php');
+
 include("connection.php");
 
 $errors = array();
 
 if(isset($_POST['submit'])){
-    $nom=$_POST['nom'];
-    $last_name=$_POST['last_name'];
-    $Email=$_POST['Email'];
-    $Phone=$_POST['Phone'];
-    $Password=$_POST['Password'];
-    $Confirmation=$_POST['Confirmation'];
+    // Sanitize user input
+    $nom = htmlspecialchars(trim($_POST['nom']));
+    $last_name = htmlspecialchars(trim($_POST['last_name']));
+    $Email = htmlspecialchars(trim($_POST['Email']));
+    $Phone = htmlspecialchars(trim($_POST['Phone']));
+    $Password = $_POST['Password']; 
+    $Confirmation = $_POST['Confirmation']; 
 
-    // Password and confirmation match validation
     if ($Password !== $Confirmation) {
         $errors[] = "Password and confirmation do not match.";
     }
 
-    $sql="SELECT * FROM signup WHERE `First Name`='$nom'";
-    $result=mysqli_query($conn,$sql);
-    $count_fname=mysqli_num_rows($result);
+    // Check if email already exists
+    $sql = "SELECT * FROM signup WHERE `E-mail Address`='$Email'";
+    $result = mysqli_query($conn, $sql);
+    $count_email = mysqli_num_rows($result);
 
-    $sql="SELECT * FROM signup WHERE `Last Name`='$last_name'";
-    $result=mysqli_query($conn,$sql);
-    $count_lname=mysqli_num_rows($result);
-
-    $sql="SELECT * FROM signup WHERE `E-mail Address`='$Email'";
-    $result=mysqli_query($conn,$sql);
-    $count_email=mysqli_num_rows($result);
-
-    if($count_fname == 0 && $count_lname == 0 && $count_email == 0){
-        if(empty($errors)){
-            $hash=password_hash($Password, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO signup (`First Name`, `Last Name`, `E-mail Address`, `Phone Number`, `Pssword`) VALUES ('$nom', '$last_name', '$Email', '$Phone', '$hash')";
-            $result=mysqli_query($conn,$sql);
-            if ($result){
-                header("Location: homesession.php");
-                exit;
-            }
-        }       
+    if($count_email > 0) {
+        $errors[] = "Email already exists.";
     }
-    else{
-        if($count_fname > 0 && $count_lname > 0 ){
-            $errors[] = "First Name and Last Name already exist.";
-        }
-        if($count_email > 0  ){
-            $errors[] = "Email already exists.";
-        }
-    }
-}
 
-?>
-
-<!DOCTYPE html>
+    if(empty($errors)){
+        $hash = password_hash($Password, PASSWORD_DEFAULT);
+        $sql = "INSERT INTO signup (`First Name`, `Last Name`, `E-mail Address`, `Phone Number`, `Pssword`) VALUES ('$nom', '$last_name', '$Email', '$Phone', '$hash')";
+        $result = mysqli_query($conn, $sql);
+        
+        if ($result) {
+            $_SESSION['loggedIn'] = true;
+            $_SESSION['id'] = mysqli_insert_id($conn);
+            header("Location: homesession.php");
+            exit(); 
+        } else {
+            $errors[] = "Error occurred while registering. Please try again.";
+        }
+    }}
+    
+    ?>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -74,23 +66,22 @@ if(isset($_POST['submit'])){
     <div id="vector">
         <div class="col-lg-6" id="photo" style="align-items: center;"></div>
         <div class="col-lg-6" id="formulaire" >
-          <div style="margin-bottom: 0px;margin-top: 30px;display: flex;flex-direction: column;justify-content: center;align-items: center;padding:20px;flex: 1;padding-bottom:0px;">
-          <div class="tilte"><span class="food">Food</span>
-            <span class="delivery"> <br/> Delivery</span></div>
-            <div class="par" style="margin-top: 20px;"><p>Sign up to expire our personalized top picks, tailored just for you.</p></div>
-          </div>
-          <div style="display: flex; justify-content: center; align-items: center; height: 60px;">
-            <?php if(!empty($errors)): ?>
-            <div class="alert alert-danger" style="width: 80%; height:60px;">
-            <ul>
-                <?php foreach ($errors as $error): ?>
-                    <li><?php echo $error; ?></li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-    <?php endif; ?>
-</div>
-
+            <div style="margin-bottom: 0px;margin-top: 30px;display: flex;flex-direction: column;justify-content: center;align-items: center;padding:20px;flex: 1;padding-bottom:0px;">
+                <div class="tilte"><span class="food">Food</span>
+                    <span class="delivery"> <br/> Delivery</span></div>
+                <div class="par" style="margin-top: 20px;"><p>Sign up to experience our personalized top picks, tailored just for you.</p></div>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 60px;">
+                <?php if(!empty($errors)): ?>
+                    <div class="alert alert-danger" style="width: 80%; height:60px;">
+                        <ul>
+                            <?php foreach ($errors as $error): ?>
+                                <li><?php echo $error; ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
+            </div>
             <form action="" method="post" style="align-items: center; text-align: center; margin-top: 0px;">
                 <div class="layout">
                     <div class="name">

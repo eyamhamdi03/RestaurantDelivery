@@ -1,7 +1,9 @@
-body{
+body {
     width: 100%;
     background: var(--Main-Primary-50, #FFF2E8);
+    
 }
+
 
 #photo{
     right: 10px;
@@ -78,21 +80,6 @@ body{
     font-weight: 300;
     line-height: 20px; /* 133.333% */
 }
-input[type="submit"] {
-    position: relative;
-    float :left;
-    box-align:center;
-    left:500px;
-    top:270px;
-    width: 400px;
-    height: 50px;
-    background: linear-gradient(360deg, #F0745E 0%, #FF330F 100%);
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 20px;
-    color: white;
-    padding: 10px 20px;}
 
     #photo2{
         position: relative;
