@@ -67,7 +67,7 @@ define('SITEURL', 'http://localhost/RestaurantDelivery/'); // Adjust the URL as 
         <img src="assets/decor2.png" class="decor-img">
 
         <div class="container">
-            <div class="Title" id = "Menu" style = "align-items =center;">Our Menu</div> 
+            <div class="Title" id = "Menu" style = "align-items :center;">Our Menu</div> 
             <div class="row" id="menuRow"> </div>
             
             <?php
