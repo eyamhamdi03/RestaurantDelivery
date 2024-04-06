@@ -18,7 +18,10 @@
             JOIN menu m ON uo.foodid = m.dishId
             ORDER BY uo.confirmed ASC, uo.date_added DESC";
 
-    $stmt = $db->query($sql);
+    $stmt = $db->prepare($sql);
+    // Assuming userId is an integer, adjust the PDO::PARAM_* accordingly if it's a different data type
+    $stmt->bindParam(':userId', $userId, PDO::PARAM_INT); 
+    $stmt->execute();
     $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
     ?>
 
