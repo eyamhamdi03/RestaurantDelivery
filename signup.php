@@ -1,48 +1,4 @@
-<?php
-session_start();include('alreadylogged.php');
 
-include("connection.php");
-
-$errors = array();
-
-if(isset($_POST['submit'])){
-    // Sanitize user input
-    $nom = htmlspecialchars(trim($_POST['nom']));
-    $last_name = htmlspecialchars(trim($_POST['last_name']));
-    $Email = htmlspecialchars(trim($_POST['Email']));
-    $Phone = htmlspecialchars(trim($_POST['Phone']));
-    $Password = $_POST['Password']; 
-    $Confirmation = $_POST['Confirmation']; 
-
-    if ($Password !== $Confirmation) {
-        $errors[] = "Password and confirmation do not match.";
-    }
-
-    // Check if email already exists
-    $sql = "SELECT * FROM signup WHERE `E-mail Address`='$Email'";
-    $result = mysqli_query($conn, $sql);
-    $count_email = mysqli_num_rows($result);
-
-    if($count_email > 0) {
-        $errors[] = "Email already exists.";
-    }
-
-    if(empty($errors)){
-        $hash = password_hash($Password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO signup (`First Name`, `Last Name`, `E-mail Address`, `Phone Number`, `Pssword`) VALUES ('$nom', '$last_name', '$Email', '$Phone', '$hash')";
-        $result = mysqli_query($conn, $sql);
-        
-        if ($result) {
-            $_SESSION['loggedIn'] = true;
-            $_SESSION['id'] = mysqli_insert_id($conn);
-            header("Location: homesession.php");
-            exit(); 
-        } else {
-            $errors[] = "Error occurred while registering. Please try again.";
-        }
-    }}
-    
-    ?>
     <!DOCTYPE html>
 <html lang="en">
 <head>
