@@ -4,7 +4,7 @@ session_start();
 ?>
 <link rel="stylesheet" type="text/css" href="styles.css">
 <nav id="navigation">
-    <div class="restaurant-name">Restaurant Name</div>
+    <div class="restaurant-name">Wamya</div>
     <div class="menu-items">
         <a href="homeNormal.php" id="home">Home</a>
         <a href="Orders.php" id="orders">Your Orders</a>
