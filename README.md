@@ -21,7 +21,7 @@ The admin section includes similar functionnalities as the user section, along w
 - Order Management: Admins can mark orders as delivered or pending (waiting).
 - Admin List : Displays a list of all admins registred in the system.
 
-##Database Structure 
+## Database Structure 
 - 'admins' : Stores information about admins.
 - 'menu' : Contains details of the restaurant menu.
 - 'signup' : Stores user account information.
