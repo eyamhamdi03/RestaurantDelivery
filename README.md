@@ -16,7 +16,7 @@ The user section of the website provides the following functionnalities :
 
 ## Admin Section 
 The admin section includes similar functionnalities as the user section, along with additional admin-specific features: 
-- Admin Login/Signup : Admins can sign in to existing accounts or create new ones.
+- Admin Login : Admins can log in to existing accounts ( PS : Only an existing admin can add or delete another admin through the admin list).
 - Menu Management: Admins can add new dihes to the menu.
 - Order Management: Admins can mark orders as delivered or pending (waiting).
 - Admin List : Displays a list of all admins registred in the system.
