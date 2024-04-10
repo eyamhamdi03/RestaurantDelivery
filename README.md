@@ -28,4 +28,5 @@ The admin section includes similar functionnalities as the user section, along w
 - 'userorder' : Records details of user orders.
 
 This is the link of the Figma where we at first start the design of our website : [https://www.figma.com/file/4EhQvTOsXifdi3vaY0eJDE/RestaurantDelivery?type=design&node-id=0%3A1&mode=design&t=qeu1lY73UqwibjLt-1]
+
 This is the link to the drive where I upload the data base structure and an example of an email for the contact us email : [https://drive.google.com/drive/folders/1PxMX-vtSuj9fDtiwiaf0zxRJXO2ETW6W?usp=sharing]
