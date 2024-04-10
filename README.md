@@ -10,14 +10,14 @@ Wamya Restaurant Delivery is a website that aloows users to browse the menu, pla
 The user section of the website provides the following functionnalities : 
 - Home page : Displays the menu and a contact form.
 - Order Placement : Users can place orders by logging un or creating a new account. After login, they proceed through three steps : Delivery (where users will provide us with their precise address and the type of delivery he wants), payment confirmation ( where users see the ammount of money they will pay) and finally the order confirmation.
-- Order History : Users can view a list of their past orders, including both delivered and pending ones.
+- Order History : Users can view a list of their past orders, including both delivered and pending ones where users can generate their orders into a pdf file.
 - Contact us : Users fill a form and press the button submit, once the user press it an automatic email will be sent to the admin email.
 - Logout : Users can securely log out of their accounts.
 
 ## Admin Section 
 The admin section includes similar functionnalities as the user section, along with additional admin-specific features: 
 - Admin Login : Admins can log in to existing accounts ( PS : Only an existing admin can add or delete another admin through the admin list).
-- Menu Management: Admins can add new dihes to the menu.
+- Menu Management: Admins can add new dihes to the menu or delete another.
 - Order Management: Admins can mark orders as delivered or pending (waiting).
 - Admin List : Displays a list of all admins registred in the system.
 
